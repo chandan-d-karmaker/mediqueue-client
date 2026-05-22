@@ -3,11 +3,12 @@ import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const SignupPage = () => {
 
     const [error, setError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     // used signin to register
     // must check before submit
@@ -70,7 +71,7 @@ const SignupPage = () => {
                 <input name='image' type="text" className="input" placeholder="Photo URL" />
 
                 <label className="label">Password</label>
-                <label className="input validator">
+                <label className="input validator w-full relative">
                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g
                             strokeLinejoin="round"
@@ -86,14 +87,23 @@ const SignupPage = () => {
                         </g>
                     </svg>
                     <input
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         name='password'
                         required
                         placeholder="Password"
                         minLength="6"
                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                         title="Must be more than 6 characters, including number, lowercase letter, uppercase letter"
+                        className="pr-10"
                     />
+                    <button
+                        type="button"
+                        onClick={() => setShowPassword(prev => !prev)}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 text-sm opacity-70 hover:opacity-100"
+                        aria-label={showPassword ? 'Hide password' : 'Show password'}
+                    >
+                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
                 </label>
                 <p className="validator-hint hidden">
                     Must be more than 6 characters, including

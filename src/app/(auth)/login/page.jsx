@@ -3,12 +3,13 @@ import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import { FaGoogle } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 
 
 const LoginPage = () => {
 
     const [error, setError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -53,7 +54,7 @@ const LoginPage = () => {
                 <input name="email" type="email" className="input" placeholder="Email" />
 
                 <label className="label">Password</label>
-                <label className="input validator">
+                <label className="input validator w-full relative">
                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g
                             strokeLinejoin="round"
@@ -69,12 +70,20 @@ const LoginPage = () => {
                         </g>
                     </svg>
                     <input
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         name='password'
                         required
                         placeholder="Password"
 
                     />
+                    <button
+                        type="button"
+                        onClick={() => setShowPassword(prev => !prev)}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 text-sm opacity-70 hover:opacity-100"
+                        aria-label={showPassword ? 'Hide password' : 'Show password'}
+                    >
+                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
                 </label>
 
 
