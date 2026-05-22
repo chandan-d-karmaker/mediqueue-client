@@ -33,8 +33,8 @@ const LoginPage = () => {
 
     }
     return (
-        <div className='flex justify-center items-center h-screen'>
-            <form onSubmit={handleSubmit} className="fieldset bg-linear-to-tl from-red-50 via-blue-50 to-red-100 border-base-300 rounded-box w-xs border p-4">
+        <div className='flex justify-center items-start h-screen'>
+            <form onSubmit={handleSubmit} className="fieldset bg-linear-to-tl from-red-50 via-blue-50 to-red-100 border-base-300 w-xs border p-4">
 
                 {
                     error && <div className="alert alert-error rounded-lg text-sm">

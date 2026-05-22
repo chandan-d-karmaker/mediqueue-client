@@ -1,9 +1,11 @@
 "use client"
 import { authClient } from '@/lib/auth-client';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaGoogle, FaEye, FaEyeSlash, FaKey } from 'react-icons/fa';
+import loginImg from '@/assests/login-img.svg'
 
 const SignupPage = () => {
 
@@ -41,9 +43,9 @@ const SignupPage = () => {
     }
 
     return (
-        <div className='flex flex-col justify-center items-center h-screen'>
+        <div className='flex md:justify-between justify-center items-center h-full'>
 
-            <form onSubmit={handleSubmit} className="fieldset bg-linear-to-tl from-red-50 via-blue-50 to-red-100 border-base-300 rounded-box w-xs border p-4">
+            <form onSubmit={handleSubmit} className="fieldset bg-linear-to-r from-red-100 via-blue-100 to-white-200 min-w-xs border border-base-300 md:border-0 p-4">
 
                 {
                     error && <div className="alert alert-error rounded-lg text-sm">
@@ -54,7 +56,7 @@ const SignupPage = () => {
                     </div>
                 }
 
-                <div className='my-5 text-center'>
+                <div className='my-6 text-center'>
                     <h2 className='text-xl font-medium mb-2'>Register Now</h2>
                     <p className='text-[16px]'>and explore the full site</p>
                 </div>
@@ -71,21 +73,8 @@ const SignupPage = () => {
                 <input name='image' type="text" className="input" placeholder="Photo URL" />
 
                 <label className="label">Password</label>
-                <label className="input validator w-full relative">
-                    <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <g
-                            strokeLinejoin="round"
-                            strokeLinecap="round"
-                            strokeWidth="2.5"
-                            fill="none"
-                            stroke="currentColor"
-                        >
-                            <path
-                                d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"
-                            ></path>
-                            <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
-                        </g>
-                    </svg>
+                <label className="input validator relative">
+                    <FaKey/>
                     <input
                         type={showPassword ? 'text' : 'password'}
                         name='password'
@@ -122,6 +111,8 @@ const SignupPage = () => {
                     <FaGoogle /> continue with google
                 </div>
             </form>
+
+            <Image src={loginImg} className='hidden md:flex' alt='image-login' height={800} width={800}></Image>
 
 
         </div>
