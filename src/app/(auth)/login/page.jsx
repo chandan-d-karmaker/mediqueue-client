@@ -1,9 +1,11 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
+import loginImg from '@/assests/Welcome.svg'
 
 
 const LoginPage = () => {
@@ -33,8 +35,9 @@ const LoginPage = () => {
 
     }
     return (
-        <div className='flex justify-center items-start h-screen'>
-            <form onSubmit={handleSubmit} className="fieldset bg-linear-to-tl from-red-50 via-blue-50 to-red-100 border-base-300 w-xs border p-4">
+        <div className='flex lg:justify-between justify-center items-center h-screen'>
+
+            <form onSubmit={handleSubmit} className="fieldset bg-linear-to-r from-red-50 via-blue-50 to-red-100 h-screen flex flex-col justify-center w-xs p-4">
 
                 {
                     error && <div className="alert alert-error rounded-lg text-sm">
@@ -99,6 +102,8 @@ const LoginPage = () => {
                     <FaGoogle /> continue with google
                 </div>
             </form>
+
+            <Image src={loginImg} className='hidden lg:flex' alt='image-login' height={800} width={800}></Image>
         </div>
     );
 };

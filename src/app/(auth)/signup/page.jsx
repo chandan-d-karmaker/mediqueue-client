@@ -43,7 +43,7 @@ const SignupPage = () => {
     }
 
     return (
-        <div className='flex md:justify-between justify-center items-center h-full'>
+        <div className='flex lg:justify-between justify-center items-center h-full'>
 
             <form onSubmit={handleSubmit} className="fieldset bg-linear-to-r from-red-100 via-blue-100 to-white-200 min-w-xs border border-base-300 md:border-0 p-4">
 
@@ -112,7 +112,7 @@ const SignupPage = () => {
                 </div>
             </form>
 
-            <Image src={loginImg} className='hidden md:flex' alt='image-login' height={800} width={800}></Image>
+            <Image src={loginImg} className='hidden lg:flex' alt='image-login' height={800} width={800}></Image>
 
 
         </div>
