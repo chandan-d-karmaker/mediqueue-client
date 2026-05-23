@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaGoogle, FaEye, FaEyeSlash, FaKey } from 'react-icons/fa';
-import loginImg from '@/assests/login-img.svg'
+import loginImg from '@/assests/Welcome.svg'
 
 const SignupPage = () => {
 

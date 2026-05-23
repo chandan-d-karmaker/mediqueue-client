@@ -1,16 +1,18 @@
 import React from 'react';
+import NavBar from '../components/shared/NavBar';
+import Footer from '../components/shared/Footer';
 
 
 const Mainlayout = ({ children }) => {
     return (
         <div>
-            {/* <Navbar /> */}
+            <NavBar />
 
             <main className='my-20 mx-4'>
                 {children}
             </main>
             
-            {/* <Footer/> */}
+            <Footer/>
         </div>
     );
 };
