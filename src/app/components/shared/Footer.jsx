@@ -1,12 +1,12 @@
-// import Image from 'next/image';
+import Image from 'next/image';
 import React from 'react';
-// import footerBg from '@/assets/WaveLine.svg'
+import footerBg from '@/assests/WaveLine.svg'
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <div className='pt-20 relative bg-black'>
-            {/* 
+        <div className='pt-20 relative'>
+            
             <Image
                 src={footerBg}
                 alt="Background"
@@ -17,7 +17,7 @@ const Footer = () => {
                     objectFit: 'cover',
                     zIndex: -1,
                 }}
-            /> */}
+            />
 
             <div className='mx-4 relative z-10'>
                 <div className='w-4/5 mx-auto text-white'>
@@ -26,7 +26,7 @@ const Footer = () => {
 
                         <div className='flex flex-col items-center text-center md:text-start md:items-start'>
                             <h1 className='text-4xl bg-linear-to-r from-red-400 via-green-300 to-blue-500 bg-clip-text text-transparent font-extrabold  mb-4'>MediQueue</h1>
-                            <p className='opacity-80 max-w-sm'>MediQueue is a tutor booking web application where students can register, log in,
+                            <p className='max-w-sm'>MediQueue is a tutor booking web application where students can register, log in,
                                 browse available tutors, and book online learning sessions based on subject and time
                                 availability. The system generates digital session tokens for each booking and allows
                                 users to manage their scheduled classes efficiently.
@@ -76,9 +76,9 @@ const Footer = () => {
 
                 </div>
 
-                <div className='w-4/5 mx-auto mt-4 md:mt-0 pt-7 md:pb-4 pb-0 border-t border-gray-700 flex justify-between items-center text-sm text-gray-400'>
+                <div className='w-4/5 mx-auto mt-4 md:mt-0 pt-7 md:pb-4 pb-0 border-t border-4 flex justify-between items-center text-sm text-gray-400'>
 
-                    <h1 className='text-center'>© 2026 Skill-Sphere. All rights reserved.</h1>
+                    <h1 className='text-center'>© 2026 Mediqueue. All rights reserved.</h1>
                     <div className='md:flex gap-5 hidden'>
                         <a href="#">Privacy Policy</a>
                         <a href="#">Terms of Service</a>
