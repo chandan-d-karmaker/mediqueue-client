@@ -8,7 +8,7 @@ const Mainlayout = ({ children }) => {
         <div>
             <NavBar />
 
-            <main className='my-20 mx-4'>
+            <main className='my-20 space-y-10 md:w-4/5 md:mx-auto mx-4'>
                 {children}
             </main>
             
