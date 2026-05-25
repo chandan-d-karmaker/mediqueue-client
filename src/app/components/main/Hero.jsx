@@ -8,7 +8,7 @@ import footerBg from '@/assests/WaveLine.svg'
 
 const Hero = () => {
     return (
-        <div className="carousel w-full h-96">
+        <div className="carousel w-full h-96 my-20">
             <div id="slide1" className="carousel-item relative w-full shrink-0">
                 <Image
                     src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp" alt='slider1' width={1200} height={400}
