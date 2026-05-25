@@ -25,7 +25,7 @@ const NavBar = () => {
                         tabIndex="-1"
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         <li><NavLink className='font-medium' href={'/'}>Home</NavLink></li>
-                        <li><NavLink className='font-medium' href={'/tutors'}>Tutors</NavLink></li>
+                        <li><NavLink className='font-medium' href={'/all-tutors'}>Tutors</NavLink></li>
                         {user && (
                             <>
                                 <li><NavLink className='font-medium' href={'/add-tutors'}>Add Tutor</NavLink></li>
@@ -40,7 +40,7 @@ const NavBar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><NavLink className='font-medium' href={'/'}>Home</NavLink></li>
-                    <li><NavLink className='font-medium' href={'/tutors'}>Tutors</NavLink></li>
+                    <li><NavLink className='font-medium' href={'/all-tutors'}>Tutors</NavLink></li>
                     {user && (
                         <>
                             <li><NavLink className='font-medium' href={'/add-tutors'}>Add Tutor</NavLink></li>

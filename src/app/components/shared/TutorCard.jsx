@@ -3,14 +3,14 @@ import React from 'react';
 
 const TutorCard = ({tutor}) => {
     return (
-        <div className="border rounded-lg p-4 shadow-md">
-            <Image src={tutor.imageUrl} alt={tutor.name} width={100} height={100} className='w-full'></Image>
-            <h1>{tutor.name}</h1>
-            <p>{tutor.subject}</p>
-            <p>{tutor.availableTime}</p>
-            <p>Season Start Date: {tutor.seasonStartDate}</p>
-            <p>Fee: ${tutor.hourlyFee.amount}/hr</p>
-            <button className="btn btn-primary btn-wide">Book Now</button>
+        <div className="rounded-lg p-4 space-y-1  bg-base-100 shadow-sm border-2 border-red-50 transition-all duration-300 hover:shadow-[8px_8px_0px_0px_#555] hover:-translate-y-1 hover:-translate-x-1">
+            <Image src={tutor.imageUrl} alt={tutor.name} width={100} height={100} className='w-full h-50 rounded-lg border'></Image>
+            <h1 className='text-xl font-semibold'>{tutor.name}</h1>
+            <p className='text-lg text-[#555]'>{tutor.subject}</p>
+            <p className='text-xl'>{tutor.availableTime}</p>
+            <p className='text-xl'>Season Start Date: {new Date(tutor.sessionStartDate).toLocaleDateString()}</p>
+            <p className='text-xl font-semibold'>Fee: ${tutor.hourlyFee.amount}/hr</p>
+            <button className="btn btn-primary w-full">Book Now</button>
         </div>
     );
 };

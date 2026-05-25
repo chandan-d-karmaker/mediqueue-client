@@ -76,7 +76,7 @@ const Footer = () => {
 
                 </div>
 
-                <div className='w-4/5 mx-auto mt-4 md:mt-0 pt-7 md:pb-4 pb-0 border-t border-4 flex justify-between items-center text-sm text-gray-400'>
+                <div className='w-4/5 mx-auto mt-4 md:mt-0 pt-7 md:pb-4 pb-0 border-t-2 flex justify-between items-center text-sm text-gray-400'>
 
                     <h1 className='text-center'>© 2026 Mediqueue. All rights reserved.</h1>
                     <div className='md:flex gap-5 hidden'>
