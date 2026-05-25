@@ -1,5 +1,6 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
+import { redirect } from 'next/navigation';
 import React from 'react';
 import toast from 'react-hot-toast';
 
@@ -31,7 +32,18 @@ const BookingModal = ({ tutor }) => {
             // console.log(data);
             if (data.insertedId) {
                 toast.success("Session Booked successfully!")
-                
+                window.location.reload();   
+                const updatedSlot = remainingSlots-1;
+                const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors/${_id}`, {
+                    method: "PATCH",
+                    headers: {
+                        'content-type':'application/json'
+                    },
+                    body: JSON.stringify({remainingSlots:updatedSlot})
+                }
+                )
+                const patchData = await res.json();
+                console.log(patchData);
             }
         } else {
             toast.error("All session booked! No slot available at this moment")
@@ -42,25 +54,29 @@ const BookingModal = ({ tutor }) => {
         <div>
             <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>Book Session</button>
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box flex items-center justify-center">
+                <div className="modal-box">
                     {/* form */}
-                    <form onSubmit={handleBooking} method="dialog" className="fieldset rounded-box w-sm p-2">
+                    <form onSubmit={handleBooking} className="fieldset rounded-box p-2">
                         <h2 className='text-xl font-medium text-center'>Book Session</h2>
                         <label className="label">Name</label>
-                        <input type="text" name='user-name' className="input" placeholder="Name" defaultValue={user?.name} />
+                        <input type="text" name='user-name' className="input w-full" placeholder="Name" defaultValue={user?.name} />
 
                         <label className="label">Phone</label>
-                        <input type="text" name='phone' className="input" placeholder="Phone number" />
+                        <input type="text" name='phone' className="input w-full" placeholder="Phone number" />
                         <label className="label">Tutor ID</label>
-                        <input type="text" name='tutor-id' className="input" placeholder="Tutor ID" defaultValue={_id} />
+                        <input type="text" name='tutor-id' className="input w-full" placeholder="Tutor ID" defaultValue={_id} />
                         <label className="label">Tutor Name</label>
-                        <input type="text" name='tutor-name' className="input" placeholder="Tutor Name" defaultValue={name} />
+                        <input type="text" name='tutor-name' className="input w-full" placeholder="Tutor Name" defaultValue={name} />
                         <label className="label">Student Email</label>
-                        <input type="email" name='stud-mail' className="input" placeholder="Your Email" defaultValue={user?.email} />
-                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                        <input type="email" name='stud-mail' className="input w-full" placeholder="Your Email" defaultValue={user?.email} />
+
                         <div className='flex gap-4 mt-4'>
                             <button type='submit' className="btn btn-neutral">Book session</button>
                         </div>
+                    </form>
+                    <form method="dialog" className='p-2 flex justify-start'>
+                        {/* if there is a button in form, it will close the modal */}
+                        <button className="btn">Close</button>
                     </form>
                 </div>
             </dialog>
