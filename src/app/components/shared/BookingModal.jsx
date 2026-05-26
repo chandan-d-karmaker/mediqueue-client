@@ -28,11 +28,22 @@ const BookingModal = ({ tutor }) => {
         })
 
         const data = await res.json();
-        //    console.log(data);
+        console.log(data);
         if (data.insertedId) {
             toast.success("Session Booked successfully!");
-            window.location.href='/all-tutors';
+            const modal = document.getElementById('my_modal_5');
+            if (modal) {
+                modal.close();
+            }
+            // window.location.reload();
+        } else {
+            toast.error(data.message)
+            const modal = document.getElementById('my_modal_5');
+            if (modal) {
+                modal.close();
+            }
         }
+
 
     }
     return (
