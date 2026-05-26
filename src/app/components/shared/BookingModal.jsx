@@ -11,7 +11,7 @@ const BookingModal = ({ tutor }) => {
     // console.log(user);
 
     const { _id, name } = tutor;
-    let { remainingSlots } = tutor;
+    // let { remainingSlots } = tutor;
     // console.log(tutor);
 
     const handleBooking = async (e) => {
@@ -19,34 +19,19 @@ const BookingModal = ({ tutor }) => {
         const formData = new FormData(e.target);
         const bookingData = Object.fromEntries(formData.entries());
 
-        if (remainingSlots > 0) {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-tutors`, {
-                method: "POST",
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify(bookingData)
-            })
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors/${_id}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookingData)
+        })
 
-            const data = await res.json();
-            // console.log(data);
-            if (data.insertedId) {
-                toast.success("Session Booked successfully!")
-                window.location.reload();   
-                const updatedSlot = remainingSlots-1;
-                const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors/${_id}`, {
-                    method: "PATCH",
-                    headers: {
-                        'content-type':'application/json'
-                    },
-                    body: JSON.stringify({remainingSlots:updatedSlot})
-                }
-                )
-                const patchData = await res.json();
-                console.log(patchData);
-            }
-        } else {
-            toast.error("All session booked! No slot available at this moment")
+        const data = await res.json();
+        //    console.log(data);
+        if (data.insertedId) {
+            toast.success("Session Booked successfully!");
+            window.location.href='/all-tutors';
         }
 
     }
