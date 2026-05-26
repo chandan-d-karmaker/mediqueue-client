@@ -15,7 +15,7 @@ const Hero = () => {
 
                 <div className="absolute inset-0 bg-black/50" />
 
-                <div className="absolute left-5 right-5 top-1/2 flex flex-col -translate-y-1/2 transform justify-center items-center space-y-4">
+                <div className="absolute left-5 right-5 top-1/2 flex flex-col -translate-y-1/2 transform justify-center items-center space-y-4 ">
                     <h1 className='text-4xl font-semibold text-center text-white'>Tutor Booking Made Easy</h1>
                     <p className='text-xl text-center text-white'>MediQueue simplify the process of booking tutors and saves significant time</p>
                     <div>

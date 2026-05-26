@@ -2,6 +2,7 @@ import Image from "next/image";
 import Hero from "../components/main/Hero";
 import AvailableTutors from "../components/main/AvailableTutors";
 import WhyChoose from "../components/main/WhyChoose";
+import HowItWorks from "../components/main/HowItWorks";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero/>
       <AvailableTutors/>
       <WhyChoose/>
+      <HowItWorks/>
       
     </div>
   );
