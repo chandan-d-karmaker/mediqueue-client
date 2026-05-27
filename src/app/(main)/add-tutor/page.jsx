@@ -7,10 +7,10 @@ import toast from 'react-hot-toast';
 
 const AddTutorPage = () => {
 
-    const { data, isPending } = useSession();
-    console.log(data, isPending);
-    const user = data?.user;
-    console.log('user: ', user.id);
+    const { data: session } = useSession();
+    // console.log(session);
+    const user = session?.user;
+    // console.log('Add user ID: ', user?.id);
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -18,26 +18,26 @@ const AddTutorPage = () => {
         const newTutor = Object.fromEntries(formData.entries());
         const newTutorData = {
             ...newTutor,
-            userID: user.id
+            userID: user?.id
         }
-        console.log(newTutorData);
+        // console.log(newTutorData);
 
-        const allRes = await fetch('http://localhost:5000/all-tutors', {
+        const res = await fetch('http://localhost:5000/all-tutors', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newTutor)
+            body: JSON.stringify(newTutorData)
         })
 
-        const Alldata = await allRes.json();
-        console.log(Alldata);
+        const data = await res.json();
+        console.log(data);
 
-        if (Alldata.insertedId) {
+        if (data.insertedId) {
             toast.success("Tutor added successfully!")
-            // redirect('all-tutors')
+            redirect('/all-tutors')
         }
-        
+
 
     }
 

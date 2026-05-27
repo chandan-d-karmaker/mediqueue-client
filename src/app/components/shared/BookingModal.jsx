@@ -8,7 +8,7 @@ const BookingModal = ({ tutor }) => {
 
     const { data: session } = authClient.useSession();
     const user = session?.user;
-    // console.log(user);
+    // console.log('user id', user?.id);
 
     const { _id, name } = tutor;
     // let { remainingSlots } = tutor;
@@ -18,13 +18,17 @@ const BookingModal = ({ tutor }) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const bookingData = Object.fromEntries(formData.entries());
+        const bookingDataWihId = {
+            ...bookingData,
+            userId: user?.id
+        }
 
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors/${_id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(bookingData)
+            body: JSON.stringify(bookingDataWihId)
         })
 
         const data = await res.json();
