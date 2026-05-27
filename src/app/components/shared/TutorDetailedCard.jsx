@@ -17,10 +17,10 @@ const TutorDetailedCard = ({ tutor }) => {
                     <p className='text-md'>Experience: {tutor.experience}</p>
                     <p className='text-md'>Location: {tutor.location}</p>
                     <p className='text-md'>Mode: {tutor.mode}</p>
-                    <p className='text-md'>Available day & time slot: {tutor.availability.days[0]} - {tutor.availability.days.at(-1)} {tutor.availability.timeSlot}</p>
+                    <p className='text-md'>Available day & time slot: {tutor.availability}</p>
                     <p className='text-md'>Remaining slots: {tutor.remainingSlots}</p>
-                    <p className='text-md'>Season Start Date: {new Date(tutor.sessionStartDate).toLocaleDateString()}</p>
-                    <p className='text-md'>Hourly Fee: ৳{tutor.hourlyFee.amount}</p>
+                    <p className='text-md'>Season Start Date: {tutor.sessionStartDate}</p>
+                    <p className='text-md'>Hourly Fee: {tutor.hourlyFee}Tk</p>
                     <BookingModal tutor={tutor} />
                 </div>
 

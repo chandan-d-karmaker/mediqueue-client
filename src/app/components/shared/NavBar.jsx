@@ -10,7 +10,7 @@ import NavLink from './Navlink';
 
 const NavBar = () => {
     const { data, isPending } = useSession();
-    console.log(data);
+    // console.log(data, isPending);
     const user = data?.user;
     // console.log(user);
     //  <h1 className="text-3xl bg-linear-to-r from-red-400 via-green-300 to-blue-500 bg-clip-text text-transparent font-extrabold">MediQueue</h1>
@@ -28,7 +28,7 @@ const NavBar = () => {
                         <li><NavLink className='font-medium' href={'/all-tutors'}>Tutors</NavLink></li>
                         {user && (
                             <>
-                                <li><NavLink className='font-medium' href={'/add-tutors'}>Add Tutor</NavLink></li>
+                                <li><NavLink className='font-medium' href={'/add-tutor'}>Add Tutor</NavLink></li>
                                 <li><NavLink className='font-medium' href={'/my-tutors'}>My Tutor</NavLink></li>
                                 <li><NavLink className='font-medium' href={'/booked-session'}>My Booked Sessions</NavLink></li>
                             </>
@@ -43,7 +43,7 @@ const NavBar = () => {
                     <li><NavLink className='font-medium' href={'/all-tutors'}>Tutors</NavLink></li>
                     {user && (
                         <>
-                            <li><NavLink className='font-medium' href={'/add-tutors'}>Add Tutor</NavLink></li>
+                            <li><NavLink className='font-medium' href={'/add-tutor'}>Add Tutor</NavLink></li>
                             <li><NavLink className='font-medium' href={'/my-tutors'}>My Tutor</NavLink></li>
                             <li><NavLink className='font-medium' href={'/booked-session'}>My Booked Sessions</NavLink></li>
                         </>
@@ -88,7 +88,7 @@ const NavBar = () => {
                     </ul> 
                 </div> : <span className="loading loading-ring loading-xl"></span>}
                 {
-                    isPending ? <></> : <Link href={'/login'} className="btn"><CgLogIn />Login</Link>
+                    !isPending ? <></> : <Link href={'/login'} className="btn"><CgLogIn />Login</Link>
                 }
             </div>
 

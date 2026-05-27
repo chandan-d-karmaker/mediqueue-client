@@ -35,7 +35,7 @@ const BookingModal = ({ tutor }) => {
             if (modal) {
                 modal.close();
             }
-            // window.location.reload();
+
         } else {
             toast.error(data.message)
             const modal = document.getElementById('my_modal_5');
@@ -43,7 +43,7 @@ const BookingModal = ({ tutor }) => {
                 modal.close();
             }
         }
-
+        window.location.reload();
 
     }
     return (

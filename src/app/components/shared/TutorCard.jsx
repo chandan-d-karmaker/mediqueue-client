@@ -9,8 +9,8 @@ const TutorCard = ({tutor}) => {
             <h1 className='text-xl font-semibold'>{tutor.name}</h1>
             <p className='text-md text-[#555]'>{tutor.subject}</p>
             <p className='text-md'>{tutor.availableTime}</p>
-            <p className='text-md'>Season Start Date: {new Date(tutor.sessionStartDate).toLocaleDateString()}</p>
-            <p className='text-xl font-semibold'>Fee: ${tutor.hourlyFee.amount}/hr</p>
+            <p className='text-md'>Season Start Date: {tutor.sessionStartDate} </p>
+            <p className='text-xl font-semibold'>Fee: {tutor.hourlyFee}Tk/hr</p>
             <Link href={`/all-tutors/${tutor._id}`} className="btn btn-primary w-full">
                 Book Session
             </Link>
