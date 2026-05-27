@@ -10,7 +10,7 @@ import NavLink from './Navlink';
 
 const NavBar = () => {
     const { data, isPending } = useSession();
-    // console.log(data, isPending);
+    console.log(data, isPending);
     const user = data?.user;
     // console.log(user);
     //  <h1 className="text-3xl bg-linear-to-r from-red-400 via-green-300 to-blue-500 bg-clip-text text-transparent font-extrabold">MediQueue</h1>
@@ -50,7 +50,7 @@ const NavBar = () => {
                     )}
                 </ul>
             </div>
-            <div className="navbar-end flex gap-4">
+            <div className="navbar-end flex gap-2 md:gap-4">
                 <label className="swap swap-rotate">
                     {/* this hidden checkbox controls the state */}
                     <input type="checkbox" className="theme-controller" value="synthwave" />
@@ -76,7 +76,10 @@ const NavBar = () => {
                 {user ? <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <Image src={user?.image} alt={user?.name} height={100} width={100} />
+                            {
+                                isPending ? <span className="loading loading-ring loading-xl"></span> : <Image src={user?.image} alt={user?.name} height={100} width={100} />
+                            }
+
                         </div>
                     </div>
                     <ul
@@ -85,11 +88,9 @@ const NavBar = () => {
                         <li><a><RxAvatar />Profile</a></li>
                         <li><a><CiSettings />Settings</a></li>
                         <li><a onClick={() => signOut()}><CgLogOut />Logout</a></li>
-                    </ul> 
-                </div> : <span className="loading loading-ring loading-xl"></span>}
-                {
-                    !isPending ? <></> : <Link href={'/login'} className="btn"><CgLogIn />Login</Link>
-                }
+                    </ul>
+                </div> : <Link href={'/login'} className="btn"><CgLogIn />Login</Link>}
+                
             </div>
 
         </div >

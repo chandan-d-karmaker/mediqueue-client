@@ -56,7 +56,7 @@ const BookingModal = ({ tutor }) => {
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                     {/* form */}
-                    <form onSubmit={handleBooking} className="fieldset rounded-box p-2">
+                    <form onSubmit={handleBooking} className="fieldset  rounded-box p-2">
                         <h2 className='text-xl font-medium text-center'>Book Session</h2>
                         <label className="label">Name</label>
                         <input type="text" name='user-name' className="input w-full" placeholder="Name" defaultValue={user?.name} />
@@ -70,15 +70,14 @@ const BookingModal = ({ tutor }) => {
                         <label className="label">Student Email</label>
                         <input type="email" name='stud-mail' className="input w-full" placeholder="Your Email" defaultValue={user?.email} />
 
-                        <div className='flex gap-4 mt-4'>
+                        <div className='flex gap-4 mt-2'>
                             <button type='submit' className="btn btn-neutral">Book session</button>
                         </div>
                     </form>
-                    <form method="dialog" className='p-2 flex justify-start'>
-                        {/* if there is a button in form, it will close the modal */}
-                        <button className="btn">Close</button>
-                    </form>
                 </div>
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
             </dialog>
         </div>
     );
