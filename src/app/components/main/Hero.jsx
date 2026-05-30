@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import slider1 from '@/assests/slide-pic-1.jpg'
 import slider2 from '@/assests/slide-pic-2.jpg'
 import slider3 from '@/assests/slide-pic-3.jpg'
@@ -24,8 +25,8 @@ const Hero = () => {
                 </div>
 
                 <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide3" className="btn btn-circle">❮</a>
-                    <a href="#slide2" className="btn btn-circle">❯</a>
+                    <a href="#slide3" className="btn btn-circle border-0 bg-transparent backdrop-blur-xs"><FaArrowLeft /></a>
+                    <a href="#slide2" className="btn btn-circle border-0 bg-transparent backdrop-blur-xs"><FaArrowRight /></a>
                 </div>
             </div>
 
@@ -46,8 +47,8 @@ const Hero = () => {
                 </div>
 
                 <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide1" className="btn btn-circle">❮</a>
-                    <a href="#slide3" className="btn btn-circle">❯</a>
+                    <a href="#slide1" className="btn btn-circle border-0 bg-transparent backdrop-blur-xs"><FaArrowLeft /></a>
+                    <a href="#slide3" className="btn btn-circle border-0 bg-transparent backdrop-blur-xs"><FaArrowRight /></a>
                 </div>
             </div>
             <div id="slide3" className="carousel-item relative w-full shrink-0">
@@ -67,8 +68,8 @@ const Hero = () => {
                 </div>
 
                 <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide2" className="btn btn-circle">❮</a>
-                    <a href="#slide1" className="btn btn-circle">❯</a>
+                    <a href="#slide2" className="btn btn-circle border-0 bg-transparent backdrop-blur-xs"><FaArrowLeft /></a>
+                    <a href="#slide1" className="btn btn-circle border-0 bg-transparent backdrop-blur-xs"><FaArrowRight /></a>
                 </div>
             </div>
 

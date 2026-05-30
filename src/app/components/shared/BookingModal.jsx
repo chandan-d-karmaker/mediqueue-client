@@ -1,6 +1,5 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
-import { redirect } from 'next/navigation';
 import React from 'react';
 import toast from 'react-hot-toast';
 
@@ -52,11 +51,11 @@ const BookingModal = ({ tutor }) => {
     }
     return (
         <div>
-            <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>Book Session</button>
+            <button className="btn btn-primary" onClick={() => document.getElementById('my_modal_5').showModal()}>Book Session</button>
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box">
+                <div className="modal-box p-2">
                     {/* form */}
-                    <form onSubmit={handleBooking} className="fieldset  rounded-box p-2">
+                    <form onSubmit={handleBooking} className="fieldset rounded-box p-2">
                         <h2 className='text-xl font-medium text-center'>Book Session</h2>
                         <label className="label">Name</label>
                         <input type="text" name='user-name' className="input w-full" placeholder="Name" defaultValue={user?.name} />
@@ -71,7 +70,7 @@ const BookingModal = ({ tutor }) => {
                         <input type="email" name='stud-mail' className="input w-full" placeholder="Your Email" defaultValue={user?.email} />
 
                         <div className='flex gap-4 mt-2'>
-                            <button type='submit' className="btn btn-neutral">Book session</button>
+                            <button type='submit' className="btn btn-primary">Book session</button>
                         </div>
                     </form>
                 </div>
