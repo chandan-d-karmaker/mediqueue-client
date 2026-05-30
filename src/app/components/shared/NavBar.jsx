@@ -12,10 +12,8 @@ import NavLink from './Navlink';
 const NavBar = () => {
     const { data, isPending } = useSession();
     const { theme, setTheme, resolvedTheme } = useTheme();
-    console.log(data, isPending);
+    // console.log(data, isPending);
     const user = data?.user;
-    // console.log(user);
-    //  <h1 className="text-3xl bg-linear-to-r from-red-400 via-green-300 to-blue-500 bg-clip-text text-transparent font-extrabold">MediQueue</h1>
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
@@ -54,7 +52,6 @@ const NavBar = () => {
             </div>
             <div className="navbar-end flex gap-2 md:gap-4">
                 <label className="swap swap-rotate">
-                    {/* this checkbox controls theme via next-themes */}
                     <input
                         type="checkbox"
                         className="theme-controller"
