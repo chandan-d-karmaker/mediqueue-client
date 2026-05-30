@@ -20,8 +20,8 @@ const MyTutorsPage = async () => {
             <h1 className='text-4xl font-bold text-center mb-5'>My Tutors</h1>
             <div>
                 {
-                    myTutors.length == 0 && <div className='flex flex-col items-center justify-center space-y-4 p-10'>
-                        <h1 className='text-2xl font-bold text-center'>No Tutors Booked</h1>
+                    myTutors.length == 0 && <div className='flex flex-col items-center justify-center space-y-4 p-10 bg-base-300 rounded-lg'>
+                        <h1 className='text-2xl font-bold text-center opacity-75'>No Tutors Booked</h1>
                         <p className='text-center'>You haven&apos;t booked any tutors yet. Please book a session to see your tutors here.</p>
                     </div>
                 }

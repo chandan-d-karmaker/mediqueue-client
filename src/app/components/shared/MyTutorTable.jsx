@@ -1,11 +1,17 @@
+'use client';
 import Image from 'next/image';
 import React from 'react';
 import { MdDeleteForever } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import TutorUpdateModal from './TutorUpdateModal';
+import toast from 'react-hot-toast';
+import DeleteAlert from './DeleteAlert';
 
 const MyTutorTable = ({ tutor }) => {
-    const { name, subject, sessionStartDate, hourlyFee, remainingSlots, availablity, imageUrl } = tutor;
+    const { _id, name, subject, sessionStartDate, hourlyFee, remainingSlots, availablity, imageUrl } = tutor;
+
+    
+
     return (
         <div className="overflow-x-auto">
             <table className="table">
@@ -50,7 +56,7 @@ const MyTutorTable = ({ tutor }) => {
                         {/* session start date */}
                         <td>{sessionStartDate}</td>
                         <th className='flex gap-2'>
-                            <button className="btn btn-warning btn-md"><MdDeleteForever /></button>
+                            <DeleteAlert tutor={tutor} />
                             <TutorUpdateModal tutor={tutor} />
                         </th>
                     </tr>
