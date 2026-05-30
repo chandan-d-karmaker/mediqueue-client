@@ -43,9 +43,9 @@ const SignupPage = () => {
     }
 
     return (
-        <div className='flex lg:justify-between justify-center items-center h-full'>
+        <div className='flex lg:justify-between justify-center items-center h-screen'>
 
-            <form onSubmit={handleSubmit} className="fieldset bg-linear-to-r from-red-100 via-blue-100 to-white-200 min-w-xs border border-base-300 md:border-0 p-4">
+            <form onSubmit={handleSubmit} className="fieldset bg-base-200 min-w-xs border border-base-300 md:border-0 p-4">
 
                 {
                     error && <div className="alert alert-error rounded-lg text-sm">
@@ -56,8 +56,8 @@ const SignupPage = () => {
                     </div>
                 }
 
-                <div className='my-6 text-center'>
-                    <h2 className='text-xl font-medium mb-2'>Register Now</h2>
+                <div className='my-3 text-center'>
+                    <h2 className='text-xl font-medium mb-1'>Register Now</h2>
                     <p className='text-[16px]'>and explore the full site</p>
                 </div>
 
@@ -99,10 +99,10 @@ const SignupPage = () => {
                     <br />At least one number <br />At least one lowercase letter <br />At least one uppercase letter
                 </p>
 
-                <button className="btn btn-neutral my-4">Register</button>
-                <p className='text-center text-[16px]'>Already registered? <Link href="/login" className="text-blue-500">Login here</Link></p>
+                <button className="btn btn-neutral my-2">Register</button>
+                <p className='text-center text-sm'>Already registered? <Link href="/login" className="text-blue-500">Login here</Link></p>
 
-                <div className="divider">OR</div>
+                <div className="divider my-1">OR</div>
 
                 <div
                     className="btn flex gap-2 items-center justify-center border p-2 rounded-sm text-blue-500"
@@ -112,7 +112,7 @@ const SignupPage = () => {
                 </div>
             </form>
 
-            <Image src={loginImg} className='hidden lg:flex' alt='image-login' height={800} width={800}></Image>
+            <Image src={loginImg} className='hidden lg:flex h-screen' alt='image-login' height={800} width={800}></Image>
 
 
         </div>

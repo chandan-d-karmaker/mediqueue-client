@@ -37,7 +37,7 @@ const LoginPage = () => {
     return (
         <div className='flex lg:justify-between justify-center items-center h-screen'>
 
-            <form onSubmit={handleSubmit} className="fieldset bg-linear-to-r from-red-50 via-blue-50 to-red-100 h-screen flex flex-col justify-center w-xs p-4">
+            <form onSubmit={handleSubmit} className="fieldset bg-base-300 h-screen flex flex-col justify-center w-xs p-4">
 
                 {
                     error && <div className="alert alert-error rounded-lg text-sm">
@@ -103,7 +103,7 @@ const LoginPage = () => {
                 </div>
             </form>
 
-            <Image src={loginImg} className='hidden lg:flex' alt='image-login' height={800} width={800}></Image>
+            <Image src={loginImg} className='hidden lg:flex h-screen' alt='image-login' height={800} width={800}></Image>
         </div>
     );
 };
