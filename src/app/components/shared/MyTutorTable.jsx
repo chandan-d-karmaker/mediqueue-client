@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { MdDeleteForever } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
+import TutorUpdateModal from './TutorUpdateModal';
 
 const MyTutorTable = ({ tutor }) => {
     const { name, subject, sessionStartDate, hourlyFee, remainingSlots, availablity, imageUrl } = tutor;
@@ -50,7 +51,7 @@ const MyTutorTable = ({ tutor }) => {
                         <td>{sessionStartDate}</td>
                         <th className='flex gap-2'>
                             <button className="btn btn-warning btn-md"><MdDeleteForever /></button>
-                            <button className="btn btn-ghost btn-md"><FaEdit /></button>
+                            <TutorUpdateModal tutor={tutor} />
                         </th>
                     </tr>
                 </tbody>

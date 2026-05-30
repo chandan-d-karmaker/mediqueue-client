@@ -93,7 +93,7 @@ const AddTutorPage = () => {
                 <select defaultValue="Select a mode" name='mode' className="select w-full">
                     <option>Select a mode</option>
                     <option>Online</option>
-                    <option>Online</option>
+                    <option>Offline</option>
                     <option>Both</option>
                 </select>
 

@@ -17,7 +17,7 @@ const MyTutorsPage = async () => {
 
     return (
         <div className='md:w-4/5 md:mx-auto space-y-4 mx-4 my-10'>
-            <h1 className='text-4xl font-bold text-center'>My Tutors</h1>
+            <h1 className='text-4xl font-bold text-center mb-5'>My Tutors</h1>
             <div>
                 {
                     myTutors.length == 0 && <div className='flex flex-col items-center justify-center space-y-4 p-10'>
