@@ -9,7 +9,7 @@ const BookingModal = ({ tutor }) => {
     const user = session?.user;
     // console.log('user id', user?.id);
 
-    const { _id, name } = tutor;
+    const { _id, name, imageUrl, subject } = tutor;
     // let { remainingSlots } = tutor;
     // console.log(tutor);
 
@@ -19,7 +19,10 @@ const BookingModal = ({ tutor }) => {
         const bookingData = Object.fromEntries(formData.entries());
         const bookingDataWihId = {
             ...bookingData,
-            userId: user?.id
+            userId: user?.id,
+            status: "Confirmed",
+            imageUrl,
+            subject
         }
 
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors/${_id}`, {
@@ -58,16 +61,16 @@ const BookingModal = ({ tutor }) => {
                     <form onSubmit={handleBooking} className="fieldset rounded-box p-2">
                         <h2 className='text-xl font-medium text-center'>Book Session</h2>
                         <label className="label">Name</label>
-                        <input type="text" name='user-name' className="input w-full" placeholder="Name" defaultValue={user?.name} />
+                        <input type="text" name='userName' className="input w-full" placeholder="Name" defaultValue={user?.name} />
 
                         <label className="label">Phone</label>
                         <input type="text" name='phone' className="input w-full" placeholder="Phone number" />
                         <label className="label">Tutor ID</label>
-                        <input type="text" name='tutor-id' className="input w-full" placeholder="Tutor ID" defaultValue={_id} />
+                        <input type="text" name='tutorId' className="input w-full" placeholder="Tutor ID" defaultValue={_id} />
                         <label className="label">Tutor Name</label>
-                        <input type="text" name='tutor-name' className="input w-full" placeholder="Tutor Name" defaultValue={name} />
+                        <input type="text" name='tutorName' className="input w-full" placeholder="Tutor Name" defaultValue={name} />
                         <label className="label">Student Email</label>
-                        <input type="email" name='stud-mail' className="input w-full" placeholder="Your Email" defaultValue={user?.email} />
+                        <input type="email" name='userMail' className="input w-full" placeholder="Your Email" defaultValue={user?.email} />
 
                         <div className='flex gap-4 mt-2'>
                             <button type='submit' className="btn btn-primary">Book session</button>

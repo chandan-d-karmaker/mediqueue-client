@@ -1,16 +1,11 @@
 'use client';
 import Image from 'next/image';
 import React from 'react';
-import { MdDeleteForever } from "react-icons/md";
-import { FaEdit } from "react-icons/fa";
 import TutorUpdateModal from './TutorUpdateModal';
-import toast from 'react-hot-toast';
 import DeleteAlert from './DeleteAlert';
 
 const MyTutorTable = ({ tutor }) => {
     const { _id, name, subject, sessionStartDate, hourlyFee, remainingSlots, availablity, imageUrl } = tutor;
-
-    
 
     return (
         <div className="overflow-x-auto">

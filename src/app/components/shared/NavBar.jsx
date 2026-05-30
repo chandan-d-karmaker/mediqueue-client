@@ -15,7 +15,7 @@ const NavBar = () => {
     // console.log(data, isPending);
     const user = data?.user;
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-transparent backdrop-blur-md shadow-sm sticky top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -30,7 +30,7 @@ const NavBar = () => {
                             <>
                                 <li><NavLink className='font-medium' href={'/add-tutor'}>Add Tutor</NavLink></li>
                                 <li><NavLink className='font-medium' href={'/my-tutors'}>My Tutor</NavLink></li>
-                                <li><NavLink className='font-medium' href={'/booked-session'}>My Booked Sessions</NavLink></li>
+                                <li><NavLink className='font-medium' href={'/my-bookings'}>My Booked Sessions</NavLink></li>
                             </>
                         )}
                     </ul>
@@ -45,7 +45,7 @@ const NavBar = () => {
                         <>
                             <li><NavLink className='font-medium' href={'/add-tutor'}>Add Tutor</NavLink></li>
                             <li><NavLink className='font-medium' href={'/my-tutors'}>My Tutor</NavLink></li>
-                            <li><NavLink className='font-medium' href={'/booked-session'}>My Booked Sessions</NavLink></li>
+                            <li><NavLink className='font-medium' href={'/my-bookings'}>My Booked Sessions</NavLink></li>
                         </>
                     )}
                 </ul>

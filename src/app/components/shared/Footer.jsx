@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
 import footerBg from '@/assests/WaveLine.svg'
-import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
+import { FaFacebookSquare, FaInstagramSquare } from 'react-icons/fa';
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
     return (
@@ -69,7 +70,7 @@ const Footer = () => {
                             <div className='flex gap-2 flex-row justify-center md:justify-start text-2xl'>
                                 <FaInstagramSquare />
                                 <FaFacebookSquare />
-                                <FaTwitterSquare />
+                                <FaSquareXTwitter />
                             </div>
                         </div>
                     </div>
