@@ -6,9 +6,9 @@ import error from '@/assests/Error-404.svg';
 const NotFound = () => {
     return (
         <div>
-            <div className="grid min-h-screen place-items-center bg-white px-6 py-16 sm:py-18 lg:px-8">
+            <div className="grid min-h-screen place-items-center bg-white px-6 py-10 sm:py-18 lg:px-8">
                 <div className="text-center">
-                    <Image src={error} alt='not found' width={400} height={400}></Image>
+                    <Image src={error} alt='not found' width={400} height={400} className="h-70"></Image>
                     <p className="mt-6 text-base leading-7 text-gray-600">
                         Sorry, we couldn&apos;t find the page you&apos;re looking for.
                     </p>

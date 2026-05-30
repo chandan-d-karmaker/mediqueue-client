@@ -12,9 +12,18 @@ const SignupPage = () => {
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
-    // used signin to register
-    // must check before submit
     // use google signup here
+    const handleGoogleSignIn = async () => {
+        const { data, error } = await authClient.signIn.social({
+            provider: "google",
+        });
+        if (error) {
+            setError(error.message);
+            return;
+        } else {
+            toast.success("Redirecting to google!");
+        }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -74,7 +83,7 @@ const SignupPage = () => {
 
                 <label className="label">Password</label>
                 <label className="input validator relative">
-                    <FaKey/>
+                    <FaKey />
                     <input
                         type={showPassword ? 'text' : 'password'}
                         name='password'
@@ -105,7 +114,7 @@ const SignupPage = () => {
                 <div className="divider my-1">OR</div>
 
                 <div
-                    className="btn flex gap-2 items-center justify-center border p-2 rounded-sm text-blue-500"
+                    className="btn flex gap-2 items-center justify-center border p-2 rounded-sm text-blue-500" onClick={handleGoogleSignIn}
                 >
                     {" "}
                     <FaGoogle /> continue with google

@@ -13,6 +13,19 @@ const LoginPage = () => {
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
+    const handleGoogleSignIn = async () => {
+        const { data, error } = await authClient.signIn.social({
+            provider: "google",
+        });
+
+        if (error) {
+            setError(error.message);
+            return;
+        } else {
+            toast.success("Redirecting to google!");
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -96,7 +109,7 @@ const LoginPage = () => {
                 <div className="divider">OR</div>
 
                 <div
-                    className="btn flex gap-2 items-center justify-center border p-2 rounded-sm text-[16px] text-blue-500"
+                    className="btn flex gap-2 items-center justify-center border p-2 rounded-sm text-[16px] text-blue-500" onClick={handleGoogleSignIn}
                 >
                     {" "}
                     <FaGoogle /> continue with google
