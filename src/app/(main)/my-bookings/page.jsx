@@ -2,6 +2,7 @@ import BookedTutorTable from '@/app/components/shared/BookedTutorTable';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 import React from 'react';
+import cancelBooking from './actions/actions';
 
 const MyBookingPage = async () => {
     const session = await auth.api.getSession({
@@ -24,9 +25,8 @@ const MyBookingPage = async () => {
                         <p className='text-center'>You haven&apos;t booked any sessions yet. Please book a session to see your bookings here.</p>
                     </div>
                 }
-                {
-                    myBookings.map((booking) => <BookedTutorTable key={booking._id} booking={booking} />)
-                }
+
+                <BookedTutorTable myBookings={myBookings} cancelBooking={cancelBooking}/>
 
             </div>
 
