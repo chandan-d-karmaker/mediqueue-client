@@ -4,6 +4,7 @@ import { useSession } from '@/lib/auth-client';
 import { redirect } from 'next/navigation';
 import React from 'react';
 import toast from 'react-hot-toast';
+import 'animate.css';
 
 const AddTutorForm = () => {
     const { data: session } = useSession();
@@ -43,7 +44,7 @@ const AddTutorForm = () => {
 
     return (
         <div className='md:w-4/5 md:mx-auto mx-4 my-10 flex items-center justify-center'>
-            <form onSubmit={onSubmit} className="fieldset bg-base-200 border-base-300 rounded-box w-lg border p-4">
+            <form onSubmit={onSubmit} className="fieldset bg-base-200 border-base-300 rounded-box w-lg border p-4 animate__animated  animate__backInDown">
                 <legend className="text-xl font-semibold text-center">Add a Tutor</legend>
 
                 <label className="label">Tutor Name</label>
