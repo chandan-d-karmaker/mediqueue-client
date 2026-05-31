@@ -103,13 +103,14 @@ const LoginPage = () => {
                 </label>
 
 
-                <button className="btn btn-neutral my-4">Login</button>
+                <button className="btn btn-neutral mt-4 mb-1">Login</button>
+                <p className='text-center text-blue-500'>Forget Password?</p>
                 <p className='text-center text-[16px]'>New here? <Link href="/signup" className="text-blue-500">Register here</Link></p>
 
                 <div className="divider">OR</div>
 
                 <div
-                    className="btn flex gap-2 items-center justify-center border p-2 rounded-sm text-[16px] text-blue-500" onClick={handleGoogleSignIn}
+                    className="btn flex gap-2 items-center justify-center border p-2 rounded-sm text-[16px] text-blue-500 hover:bg-blue-500 hover:text-white" onClick={handleGoogleSignIn}
                 >
                     {" "}
                     <FaGoogle /> continue with google

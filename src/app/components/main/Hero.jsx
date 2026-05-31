@@ -4,6 +4,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import slider1 from '@/assests/slide-pic-1.jpg'
 import slider2 from '@/assests/slide-pic-2.jpg'
 import slider3 from '@/assests/slide-pic-3.jpg'
+import Link from 'next/link';
 
 const Hero = () => {
     return (
@@ -20,7 +21,7 @@ const Hero = () => {
                     <h1 className='text-4xl font-semibold text-center text-white'>Tutor Booking Made Easy</h1>
                     <p className='text-xl text-center text-white'>MediQueue simplify the process of booking tutors and saves significant time</p>
                     <div>
-                        <button className='btn btn-primary'>Book Now</button>
+                        <Link href="/all-tutors" className='btn btn-primary'>Book Now</Link>
                     </div>
                 </div>
 
@@ -42,7 +43,7 @@ const Hero = () => {
                     <h1 className='text-4xl font-semibold text-center text-white'>Find and book the right tutor instantly</h1>
                     <p className='text-xl text-center text-white'>Browse tutors and book session effortlessly from our online platform</p>
                     <div>
-                        <button className='btn btn-primary'>Find Tutor</button>
+                        <Link href="/all-tutors" className='btn btn-primary'>Find Tutor</Link>
                     </div>
                 </div>
 
@@ -63,7 +64,7 @@ const Hero = () => {
                     <h1 className='text-4xl font-semibold text-center text-white'>Effiecient Schedualing for Better Learing</h1>
                     <p className='text-xl text-center text-white'>Manage Appointment and ensure smooth communication between student and tutor through Mediqueue</p>
                     <div>
-                        <button className='btn btn-primary'>Explore Now</button>
+                        <Link href="/all-tutors" className='btn btn-primary'>Explore Now</Link>
                     </div>
                 </div>
 

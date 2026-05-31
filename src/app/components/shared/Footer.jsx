@@ -3,6 +3,7 @@ import React from 'react';
 import footerBg from '@/assests/WaveLine.svg'
 import { FaFacebookSquare, FaInstagramSquare } from 'react-icons/fa';
 import { FaSquareXTwitter } from "react-icons/fa6";
+import Link from 'next/link';
 
 const Footer = () => {
     return (
@@ -23,7 +24,7 @@ const Footer = () => {
             <div className='mx-4 relative z-10'>
                 <div className='w-4/5 mx-auto text-white'>
 
-                    <div className='flex flex-col space-y-5 md:flex-row justify-between md:gap-10'>
+                    <div className='flex flex-col space-y-5 md:flex-row justify-between md:gap-5 lg:gap-10'>
 
                         <div className='flex flex-col items-center text-center md:text-start md:items-start'>
                             <h1 className='text-4xl bg-linear-to-r from-red-400 via-green-300 to-blue-500 bg-clip-text text-transparent font-extrabold  mb-4'>MediQueue</h1>
@@ -36,12 +37,12 @@ const Footer = () => {
 
                         <div className='flex flex-col items-center text-center md:flex-row md:text-start md:gap-6 lg:gap-20 justify-between gap-10'>
                             <div className='space-y-4'>
-                                <h1 className='font-semibold'>Courses</h1>
+                                <h1 className='font-semibold'>Tutors</h1>
                                 <ul className='space-y-2 opacity-80'>
-                                    <li><a href="">All Courses</a></li>
-                                    <li><a href="">Features</a></li>
-                                    <li><a href="">Pricing</a></li>
-                                    <li><a href="">Integrations</a></li>
+                                    <li><Link href="/all-tutors">All Tutors</Link></li>
+                                    <li><Link href="/all-tutors">Features</Link></li>
+                                    <li><Link href="/all-tutors">Pricing</Link></li>
+                                    <li><Link href="/all-tutors">Integrations</Link></li>
                                 </ul>
                             </div>
                             <div className='space-y-4'>
@@ -72,6 +73,12 @@ const Footer = () => {
                                 <FaFacebookSquare />
                                 <FaSquareXTwitter />
                             </div>
+                            <div className='flex gap-2 flex-col justify-center md:justify-start'>
+                                <h1 className='font-semibold text-center'>Contact Us</h1>
+                                <p>+88099887765</p>
+                                <p>+88099868565</p>
+                            </div>
+                            
                         </div>
                     </div>
 
