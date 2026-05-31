@@ -5,10 +5,6 @@ import Link from 'next/link'
 import React from 'react';
 
 const FeatTutorCard = async ({ tutor }) => {
-    const {session, user} = await auth.api.getSession({
-        headers: await headers() // headers containing the user's session token
-    });
-    // console.log(user.id);
     
     return (
         <div className="rounded-lg p-4 space-y-1  bg-base-100 shadow-sm border-2 border-red-50 transition-all duration-300 hover:shadow-[8px_8px_0px_0px_#555] hover:-translate-y-1 hover:-translate-x-1">

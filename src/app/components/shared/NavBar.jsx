@@ -91,7 +91,7 @@ const NavBar = () => {
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         <li><a><RxAvatar />Profile</a></li>
                         <li><a><CiSettings />Settings</a></li>
-                        <li><a onClick={() => signOut()}><CgLogOut />Logout</a></li>
+                        <li><Link href={'/login'} onClick={() => signOut()}><CgLogOut />Logout</Link></li>
                     </ul>
                 </div> : <Link href={'/login'} className="btn"><CgLogIn />Login</Link>}
                 

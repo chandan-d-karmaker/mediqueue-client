@@ -114,7 +114,7 @@ const SignupPage = () => {
                 <div className="divider my-1">OR</div>
 
                 <div
-                    className="btn flex gap-2 items-center justify-center border p-2 rounded-sm text-blue-500" onClick={handleGoogleSignIn}
+                    className="btn bg-base-100 flex gap-2 items-center justify-center border p-2 rounded-sm text-blue-500  hover:bg-blue-500 hover:text-white" onClick={handleGoogleSignIn}
                 >
                     {" "}
                     <FaGoogle /> continue with google
