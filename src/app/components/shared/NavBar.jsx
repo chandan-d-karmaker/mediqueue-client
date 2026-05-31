@@ -35,7 +35,7 @@ const NavBar = () => {
                         )}
                     </ul>
                 </div>
-                <h1 className="md:text-3xl text-xl bg-linear-to-r from-red-400 via-green-300 to-blue-500 bg-clip-text text-transparent font-extrabold">MediQueue</h1>
+                <Link href={'/'} className="md:text-3xl text-xl bg-linear-to-r from-red-400 via-green-300 to-blue-500 bg-clip-text text-transparent font-extrabold">MediQueue</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

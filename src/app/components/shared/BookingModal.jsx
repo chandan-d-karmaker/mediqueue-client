@@ -9,9 +9,18 @@ const BookingModal = ({ tutor }) => {
     const user = session?.user;
     // console.log('user id', user?.id);
 
-    const { _id, name, imageUrl, subject } = tutor;
+    const { _id, name, imageUrl, subject, sessionStartDate } = tutor;
     // let { remainingSlots } = tutor;
     // console.log(tutor);
+    const date1 = new Date(sessionStartDate);
+    const date2 = new Date();
+    
+    console.log(date1, date2);
+
+    if(date2<date1){
+        toast.error('Booking is not available yet for this tutor');
+        return;
+    }
 
     const handleBooking = async (e) => {
         e.preventDefault();
@@ -42,6 +51,8 @@ const BookingModal = ({ tutor }) => {
                 modal.close();
             }
 
+            window.location.reload();
+
         } else {
             toast.error(data.message)
             const modal = document.getElementById('my_modal_5');
@@ -49,7 +60,7 @@ const BookingModal = ({ tutor }) => {
                 modal.close();
             }
         }
-        window.location.reload();
+        
 
     }
     return (
