@@ -24,6 +24,12 @@ export default function RootLayout({ children }) {
       lang="en" scroll-behavior="smooth" suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+      </head>
       <body className=" flex flex-col">
         <ThemeProviders>
           <main>{children}</main>

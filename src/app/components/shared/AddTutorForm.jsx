@@ -4,7 +4,7 @@ import { useSession } from '@/lib/auth-client';
 import { redirect } from 'next/navigation';
 import React from 'react';
 import toast from 'react-hot-toast';
-import 'animate.css';
+
 
 const AddTutorForm = () => {
     const { data: session } = useSession();

@@ -8,7 +8,7 @@ const MyTutorTable = ({ tutor }) => {
     const { _id, name, subject, sessionStartDate, hourlyFee, remainingSlots, availablity, imageUrl } = tutor;
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto animate__animated animate__fadeInDown">
             <table className="table">
                 {/* head */}
                 <thead>

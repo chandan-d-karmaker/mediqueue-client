@@ -55,7 +55,7 @@ const TutorUpdateModal = ({ tutor }) => {
     }
     return (
         <div>
-            <button className="btn btn-primary btn-outline btn-md" onClick={() => document.getElementById(`modal-${_id}`).showModal()}><FaEdit /></button>
+            <button className="btn btn-primary btn-outline btn-md tooltip" data-tip="Update Tutor" onClick={() => document.getElementById(`modal-${_id}`).showModal()}><FaEdit /></button>
             <dialog id={`modal-${_id}`} className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box p-2">
 

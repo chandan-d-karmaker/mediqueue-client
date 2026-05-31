@@ -29,7 +29,7 @@ const BookedTutorTable = ({ booking }) => {
 
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto animate__animated animate__fadeInDown">
             <table className="table">
                 {/* head */}
                 <thead>
@@ -68,10 +68,10 @@ const BookedTutorTable = ({ booking }) => {
                         <td className="font-semibold text-md">{booking.userMail}</td>
 
                         {/* status */}
-                        <td><span className="font-bold badge badge-warning text-md">{booking.status}</span></td>
+                        <td><span className={`font-bold badge text-md ${booking.status === 'Cancelled' && 'badge-error'} ${booking.status === 'Confirmed' && 'badge-primary'}`}>{booking.status}</span></td>
 
                         <th>
-                            <button className='btn' onClick={cancelBooking}>
+                            <button className='btn tooltip' data-tip="Cancel Booking" onClick={cancelBooking}>
                                 <MdCancel />
                             </button>
                         </th>
