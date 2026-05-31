@@ -3,6 +3,7 @@ import BookingModal from './BookingModal';
 import Image from 'next/image';
 import BackButton from './BackButton';
 
+
 const TutorDetailedCard = ({ tutor }) => {
     return (
         <div className='md:w-4/5 md:mx-auto mx-4 mb-10 mt-5 '>

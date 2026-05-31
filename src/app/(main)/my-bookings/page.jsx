@@ -2,7 +2,10 @@ import BookedTutorTable from '@/app/components/shared/BookedTutorTable';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 import React from 'react';
-import cancelBooking from './actions/actions';
+
+export const metadata = {
+  title: "My Bookings",
+};
 
 const MyBookingPage = async () => {
     const session = await auth.api.getSession({

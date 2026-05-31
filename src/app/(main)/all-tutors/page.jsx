@@ -1,6 +1,10 @@
 import React from 'react';
 import TutorCard from '../../components/shared/TutorCard';
 
+export const metadata = {
+  title: "All Tutuors",
+};
+
 const AllTutors = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors`)
     const tutors = await res.json();
