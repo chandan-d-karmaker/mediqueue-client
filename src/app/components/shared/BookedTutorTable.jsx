@@ -3,16 +3,30 @@
 import React from 'react';
 import Image from 'next/image';
 import { MdCancel } from "react-icons/md";
+import toast from 'react-hot-toast';
 
-const BookedTutorTable = ({ myBookings, cancelBooking }) => {
-    console.log(myBookings);
+const BookedTutorTable = ({ booking }) => {
+    console.log(booking);
 
-    const cancelbookingWraper = async ()=>{
-        'use server'
+    const cancelBooking = async () => {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-bookings/${booking._id}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
 
-        return cancelBooking(booking._id);
-    } 
-  
+        const data = await res.json();
+        console.log(data);
+        if (data.modifiedCount > 0) {
+            toast.success('Booking Canceled Successfully!');
+            window.location.reload();
+        } else {
+            toast.error("Failed to cancel! Try again later! ")
+        }
+    }
+
+
 
     return (
         <div className="overflow-x-auto">
@@ -29,8 +43,7 @@ const BookedTutorTable = ({ myBookings, cancelBooking }) => {
                 </thead>
                 <tbody>
                     {/* row */}
-                    {
-                        myBookings.map((booking) => <tr key={booking._id} className="hover:bg-base-200">
+                    <tr>
                         <td>
                             <div className="flex items-center gap-3">
                                 <div className="avatar">
@@ -58,17 +71,14 @@ const BookedTutorTable = ({ myBookings, cancelBooking }) => {
                         <td><span className="font-bold badge badge-warning text-md">{booking.status}</span></td>
 
                         <th>
-                            <button className='btn' onClick={()=>cancelbookingWraper(booking._id)}>
+                            <button className='btn' onClick={cancelBooking}>
                                 <MdCancel />
                             </button>
                         </th>
-                    </tr>)
-                    }
-                    
+                    </tr>
                 </tbody>
-
             </table>
-        </div>
+        </div >
     );
 };
 

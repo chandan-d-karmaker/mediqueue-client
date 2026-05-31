@@ -26,7 +26,9 @@ const MyBookingPage = async () => {
                     </div>
                 }
 
-                <BookedTutorTable myBookings={myBookings} cancelBooking={cancelBooking}/>
+                {
+                    myBookings.map(booking => <BookedTutorTable key={booking._id} booking={booking}/>)
+                }
 
             </div>
 
