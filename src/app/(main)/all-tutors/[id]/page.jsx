@@ -1,9 +1,22 @@
 import TutorDetailedCard from '@/app/components/shared/TutorDetailedCard';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 import React from 'react';
 
 export const generateMetadata = async ({ params }) => {
     const { id } = await params;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors/${id}`);
+
+    const {token} = await auth.api.getToken({
+        headers: await headers()
+    })
+
+    console.log(token);
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors/${id}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    });
     const tutor = await res.json();
 
     return {
