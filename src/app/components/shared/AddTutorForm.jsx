@@ -6,7 +6,7 @@ import React from 'react';
 import toast from 'react-hot-toast';
 
 
-const AddTutorForm = () => {
+const AddTutorForm = ({ token }) => {
     const { data: session } = useSession();
     // console.log(session);
     const user = session?.user;
@@ -25,7 +25,8 @@ const AddTutorForm = () => {
         const res = await fetch('http://localhost:5000/all-tutors', {
             method: "POST",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${token}`
             },
             body: JSON.stringify(newTutorData)
         })

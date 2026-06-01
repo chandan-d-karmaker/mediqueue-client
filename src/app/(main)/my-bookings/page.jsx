@@ -4,7 +4,7 @@ import { headers } from 'next/headers';
 import React from 'react';
 
 export const metadata = {
-  title: "My Bookings",
+    title: "My Bookings",
 };
 
 const MyBookingPage = async () => {
@@ -12,9 +12,16 @@ const MyBookingPage = async () => {
         headers: await headers(), // you need to pass the headers object.
     });
     const { id } = session?.user;
-    console.log(id);
+    // console.log(id);
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-bookings/${id}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-bookings/${id}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    })
     const myBookings = await res.json();
     // console.log(myBookings);
 
@@ -30,7 +37,7 @@ const MyBookingPage = async () => {
                 }
 
                 {
-                    myBookings.map(booking => <BookedTutorTable key={booking._id} booking={booking}/>)
+                    myBookings.map(booking => <BookedTutorTable key={booking._id} booking={booking} />)
                 }
 
             </div>
