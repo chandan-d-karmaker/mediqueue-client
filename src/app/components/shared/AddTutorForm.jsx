@@ -4,7 +4,6 @@ import { useSession } from '@/lib/auth-client';
 import { redirect } from 'next/navigation';
 import React from 'react';
 import toast from 'react-hot-toast';
-import ImageHelp from './ImageHelp';
 import { div } from 'motion/react-client';
 
 

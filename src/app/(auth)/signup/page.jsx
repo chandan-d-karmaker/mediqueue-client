@@ -80,6 +80,13 @@ const SignupPage = () => {
 
                 <label className="label">Photo URL</label>
                 <input name='image' type="text" className="input" placeholder="Photo URL" />
+                <button
+                    type="button"
+                    className="link text-start link-info text-xs"
+                    onClick={() => document.getElementById('my_modal_3').showModal()}
+                >
+                    How to get a link?
+                </button>
 
                 <label className="label">Password</label>
                 <label className="input validator relative">
@@ -90,8 +97,8 @@ const SignupPage = () => {
                         required
                         placeholder="Password"
                         minLength="6"
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-                        title="Must be more than 6 characters, including number, lowercase letter, uppercase letter"
+                        pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                        title="Must be more than 6 characters, one lowercase letter, one uppercase letter"
                         className="pr-10"
                     />
                     <button
@@ -120,6 +127,21 @@ const SignupPage = () => {
                     <FaGoogle /> continue with google
                 </div>
             </form>
+            <dialog id="my_modal_3" className="modal">
+                <div className="modal-box">
+                    <form method="dialog">
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <h3 className="font-bold text-lg">How to add an image</h3>
+                    <p className="py-4">Follow these steps to get a direct image link:</p>
+                    <ol className="list-decimal list-inside space-y-2">
+                        <li>Go to <a href="https://imgbb.com/" target="_blank" className="link link-primary">ImgBB</a>.</li>
+                        <li>Click the <strong>Start Uploading</strong> button and select your image.</li>
+                        <li>Once uploaded, change the dropdown menu to <strong>HTML full linked</strong> or <strong>Direct links</strong>.</li>
+                        <li>Copy the URL provided and paste it into our form field.</li>
+                    </ol>
+                </div>
+            </dialog>
 
             <Image src={loginImg} className='hidden lg:flex h-screen' alt='image-login' height={800} width={800}></Image>
 
