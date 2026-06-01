@@ -22,7 +22,7 @@ const BookedTutorTable = ({ booking }) => {
             toast.success('Booking Canceled Successfully!');
             window.location.reload();
         } else {
-            toast.error("Failed to cancel! Try again later! ")
+            toast.error("Tutor is already canceled! Please book another tutor.");
         }
     }
 
@@ -34,7 +34,7 @@ const BookedTutorTable = ({ booking }) => {
                 {/* head */}
                 <thead>
                     <tr>
-                        <th>Tutor Name</th>
+                        <th>Tutor</th>
                         <th>Student Name</th>
                         <th>Student Email</th>
                         <th>Status</th>
@@ -44,7 +44,7 @@ const BookedTutorTable = ({ booking }) => {
                 <tbody>
                     {/* row */}
                     <tr>
-                        <td>
+                        <td className="px-3">
                             <div className="flex items-center gap-3">
                                 <div className="avatar">
                                     <div className="mask mask-squircle h-12 w-12">

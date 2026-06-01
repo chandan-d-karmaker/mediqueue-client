@@ -20,7 +20,7 @@ const TutorCard = async ({ tutor }) => {
             }}
             
 
-            className="rounded-lg p-4 space-y-1 bg-base-100 shadow-sm border-2 border-red-50 transition-all duration-300 hover:shadow-[8px_8px_0px_0px_#555] hover:-translate-y-1 hover:-translate-x-1"
+            className="rounded-lg p-4 space-y-1 bg-base-100 shadow-sm border-2 border-base-300 transition-all duration-300 hover:shadow-[8px_8px_0px_0px_#555] hover:-translate-y-1 hover:-translate-x-1"
         >
             <Image 
                 src={tutor.imageUrl} 
