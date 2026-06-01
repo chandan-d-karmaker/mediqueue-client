@@ -74,7 +74,9 @@ const BookedTutorTable = ({ booking, token }) => {
                         <td className="font-semibold text-md">{booking.userMail}</td>
 
                         {/* status */}
-                        <td><span className={`font-bold badge text-md ${booking.status ? "badge-primary" : "badge-warning"}`}>{booking.status? "Confirmed" : "Canceled"}</span></td>
+                        <td><span className={`font-bold badge text-md ${booking.status === 'Confirmed' ? 'badge-primary' : ''} ${booking.status === 'Cancelled' ? 'badge-warning' : ''}`}>
+                            {booking.status}
+                        </span></td>
 
                         <th>
                             <button className='btn tooltip' data-tip="Cancel Booking" onClick={cancelBooking}>
