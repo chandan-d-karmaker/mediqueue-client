@@ -6,9 +6,29 @@ import React from 'react';
 import * as motion from "motion/react-client";
 
 const TutorCard = async ({ tutor }) => {
-    const { session, user } = await auth.api.getSession({
+
+    // implement a disabled btn if already booked
+    const { user } = await auth.api.getSession({
         headers: await headers()
     });
+
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+
+    // console.log(session, user);
+    // console.log(tutor);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-bookings/${user.id}`,
+        {
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        }
+    )
+    const bookedTutors = await res.json();
+    console.log(bookedTutors);
+
+
 
     return (
         <motion.div
@@ -18,7 +38,7 @@ const TutorCard = async ({ tutor }) => {
                 duration: 0.1,
                 scale: { type: "spring", visualDuration: 0.1, bounce: 0.5 },
             }}
-            
+
 
             className="rounded-lg p-4 space-y-1 bg-base-100 shadow-sm border-2 border-base-300 transition-all duration-300 hover:shadow-[8px_8px_0px_0px_#555] hover:-translate-y-1 hover:-translate-x-1"
         >
@@ -33,9 +53,35 @@ const TutorCard = async ({ tutor }) => {
             <p className='text-md opacity-75'>{tutor.subject}</p>
             <p className='text-md'>Season Start Date: {tutor.sessionStartDate} </p>
             <p className='text-xl font-semibold'>Fee: {tutor.hourlyFee}Tk/hr</p>
-            <Link href={`/all-tutors/${tutor._id}`} className="btn btn-primary w-full">
-                Book Session
-            </Link>
+
+            <button className='btn btn-primary w-full'>
+                <Link href={`/all-tutors/${tutor._id}`} className="btn btn-primary w-full">
+                    Book Session
+                </Link>
+            </button>
+
+            {/* these are some features I'll implement later to disable the booking session button if the tutor is already in the users booking list */}
+            {/* {
+                bookedTutors.length == 0 && <Link href={`/all-tutors/${tutor._id}`} className="btn btn-primary w-full">
+                    Book Session
+                </Link>
+            }
+            {
+                bookedTutors.map(bookedtutor => bookedtutor.status === true) ? <button className="btn btn-primary w-full btn-disabled">
+                    Session Already Booked
+                </button> : <Link href={`/all-tutors/${tutor._id}`} className="btn btn-primary w-full">
+                    Book Session
+                </Link>
+
+            }
+            {
+                bookedTutors.includes(userId) ? <Link href={`/all-tutors/${tutor._id}`} className="btn btn-primary w-full">
+                    Book Session
+                </Link> : <button className="btn btn-primary w-full btn-disabled">
+                    Session Already Booked
+                </button>
+            } */}
+
         </motion.div>
     );
 };

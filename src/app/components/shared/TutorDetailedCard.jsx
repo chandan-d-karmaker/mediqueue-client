@@ -4,7 +4,7 @@ import Image from 'next/image';
 import BackButton from './BackButton';
 
 
-const TutorDetailedCard = ({ tutor }) => {
+const TutorDetailedCard = ({ tutor, token }) => {
 
     console.log(tutor);
     return (
@@ -24,7 +24,7 @@ const TutorDetailedCard = ({ tutor }) => {
                     <p className='text-md'><span className='font-semibold'>Remaining slots:</span> {tutor.remainingSlots}</p>
                     <p className='text-md'><span className='font-semibold'>Session Start Date:</span> {tutor.sessionStartDate}</p>
                     <p className='text-md'><span className='font-semibold'>Hourly Fee:</span> {tutor.hourlyFee}Tk</p>
-                    <BookingModal tutor={tutor} />
+                    <BookingModal tutor={tutor} token={token} />
                 </div>
 
             </div>

@@ -3,7 +3,7 @@ import { authClient } from '@/lib/auth-client';
 import React from 'react';
 import toast from 'react-hot-toast';
 
-const BookingModal = ({ tutor }) => {
+const BookingModal = ({ tutor, token }) => {
 
     const { data: session } = authClient.useSession();
     const user = session?.user;
@@ -28,7 +28,9 @@ const BookingModal = ({ tutor }) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors/${_id}`, {
             method: "PATCH",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${token}`
+                
             },
             body: JSON.stringify(bookingDataWihId)
         })

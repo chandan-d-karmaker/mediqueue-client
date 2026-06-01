@@ -31,7 +31,7 @@ const TutorDetailsPage = async ({ params }) => {
     // console.log(tutor);
 
     return (
-        <TutorDetailedCard tutor={tutor} />
+        <TutorDetailedCard tutor={tutor} token={token} />
     );
 };
 

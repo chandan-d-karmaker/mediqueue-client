@@ -2,13 +2,14 @@ import React from 'react';
 import toast from 'react-hot-toast';
 import { MdDeleteForever } from 'react-icons/md';
 
-const DeleteAlert = ({ tutor }) => {
+const DeleteAlert = ({ tutor, token }) => {
     console.log(tutor);
     const handleDelete = async () => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-tutors/${tutor._id}`, {
             method: "DELETE",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${token}`
             }
         });
         const data = await res.json();

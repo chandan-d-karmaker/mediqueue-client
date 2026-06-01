@@ -38,7 +38,7 @@ const MyTutorsPage = async () => {
                     </div>
                 }
                 {
-                    myTutors.map((tutor) => <MyTutorTable key={tutor._id} tutor={tutor} />)
+                    myTutors.map((tutor) => <MyTutorTable key={tutor._id} tutor={tutor} token={token} />)
                 }
             </div>
         </div>

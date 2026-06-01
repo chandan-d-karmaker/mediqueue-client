@@ -65,12 +65,10 @@ const SignupPage = () => {
                     </div>
                 }
 
-                <div className='my-3 text-center'>
-                    <h2 className='text-xl font-medium mb-1'>Register Now</h2>
+                <div className='my-1 text-center'>
+                    <h2 className='text-xl font-medium'>Register Now</h2>
                     <p className='text-[16px]'>and explore the full site</p>
                 </div>
-
-
 
                 <label className="label">Name</label>
                 <input name='name' type="text" className="input" placeholder="Name" />
@@ -115,7 +113,7 @@ const SignupPage = () => {
                     <br />At least one number <br />At least one lowercase letter <br />At least one uppercase letter
                 </p>
 
-                <button className="btn btn-neutral my-2">Register</button>
+                <button className="btn btn-neutral my-1">Register</button>
                 <p className='text-center text-sm'>Already registered? <Link href="/login" className="text-blue-500">Login here</Link></p>
 
                 <div className="divider my-1">OR</div>

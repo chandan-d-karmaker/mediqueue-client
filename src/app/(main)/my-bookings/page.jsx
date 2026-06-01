@@ -37,7 +37,7 @@ const MyBookingPage = async () => {
                 }
 
                 {
-                    myBookings.map(booking => <BookedTutorTable key={booking._id} booking={booking} />)
+                    myBookings.map(booking => <BookedTutorTable key={booking._id} booking={booking} token={token} />)
                 }
 
             </div>

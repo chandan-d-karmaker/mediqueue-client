@@ -4,7 +4,7 @@ import React from 'react';
 import TutorUpdateModal from './TutorUpdateModal';
 import DeleteAlert from './DeleteAlert';
 
-const MyTutorTable = ({ tutor }) => {
+const MyTutorTable = ({ tutor, token }) => {
     const { _id, name, subject, sessionStartDate, hourlyFee, remainingSlots, availablity, imageUrl } = tutor;
 
     return (
@@ -51,7 +51,7 @@ const MyTutorTable = ({ tutor }) => {
                         {/* session start date */}
                         <td>{sessionStartDate}</td>
                         <th className='flex gap-2'>
-                            <DeleteAlert tutor={tutor} />
+                            <DeleteAlert tutor={tutor} token={token} />
                             <TutorUpdateModal tutor={tutor} />
                         </th>
                     </tr>

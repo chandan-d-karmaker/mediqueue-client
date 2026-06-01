@@ -1,26 +1,32 @@
 'use client'
-
 import React from 'react';
 import Image from 'next/image';
 import { MdCancel } from "react-icons/md";
 import toast from 'react-hot-toast';
 
-const BookedTutorTable = ({ booking }) => {
-    console.log(booking);
+const BookedTutorTable = ({ booking, token }) => {
 
     const cancelBooking = async () => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-bookings/${booking._id}`, {
             method: "PATCH",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${token}`
+
             }
         })
 
         const data = await res.json();
         console.log(data);
+        const DURATION = 1000;
         if (data.modifiedCount > 0) {
-            toast.success('Booking Canceled Successfully!');
-            window.location.reload();
+            toast.success('Booking Canceled Successfully!', {
+                duration: DURATION,
+            });
+
+            setTimeout(() => {
+                window.location.reload();
+            }, DURATION);
         } else {
             toast.error("Tutor is already canceled! Please book another tutor.");
         }
@@ -68,7 +74,7 @@ const BookedTutorTable = ({ booking }) => {
                         <td className="font-semibold text-md">{booking.userMail}</td>
 
                         {/* status */}
-                        <td><span className={`font-bold badge text-md ${booking.status === 'Cancelled' && 'badge-error'} ${booking.status === 'Confirmed' && 'badge-primary'}`}>{booking.status}</span></td>
+                        <td><span className={`font-bold badge text-md ${booking.status ? "badge-primary" : "badge-warning"}`}>{booking.status? "Confirmed" : "Canceled"}</span></td>
 
                         <th>
                             <button className='btn tooltip' data-tip="Cancel Booking" onClick={cancelBooking}>
