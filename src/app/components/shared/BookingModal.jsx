@@ -42,7 +42,7 @@ const BookingModal = ({ tutor }) => {
                 modal.close();
             }
 
-            window.location.reload();
+            window.location.href='/my-bookings';
 
         } else {
             toast.error(data.message)

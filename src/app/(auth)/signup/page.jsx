@@ -90,7 +90,7 @@ const SignupPage = () => {
                         required
                         placeholder="Password"
                         minLength="6"
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                         title="Must be more than 6 characters, including number, lowercase letter, uppercase letter"
                         className="pr-10"
                     />
