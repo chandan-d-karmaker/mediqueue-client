@@ -26,8 +26,8 @@ const Hero = () => {
                 </div>
 
                 <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide3" className="btn btn-circle border-0 bg-transparent backdrop-blur-xs"><FaArrowLeft /></a>
-                    <a href="#slide2" className="btn btn-circle border-0 bg-transparent backdrop-blur-xs"><FaArrowRight /></a>
+                    <a href="#slide3" className="btn btn-circle border-0 bg-transparent backdrop-blur-md text-white"><FaArrowLeft /></a>
+                    <a href="#slide2" className="btn btn-circle border-0 bg-transparent backdrop-blur-md text-white"><FaArrowRight /></a>
                 </div>
             </div>
 
@@ -48,8 +48,8 @@ const Hero = () => {
                 </div>
 
                 <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide1" className="btn btn-circle border-0 bg-transparent backdrop-blur-xs"><FaArrowLeft /></a>
-                    <a href="#slide3" className="btn btn-circle border-0 bg-transparent backdrop-blur-xs"><FaArrowRight /></a>
+                    <a href="#slide1" className="btn btn-circle border-0 bg-transparent backdrop-blur-md text-white"><FaArrowLeft /></a>
+                    <a href="#slide3" className="btn btn-circle border-0 bg-transparent backdrop-blur-md text-white"><FaArrowRight /></a>
                 </div>
             </div>
             <div id="slide3" className="carousel-item relative w-full shrink-0">
@@ -69,8 +69,8 @@ const Hero = () => {
                 </div>
 
                 <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide2" className="btn btn-circle border-0 bg-transparent backdrop-blur-xs"><FaArrowLeft /></a>
-                    <a href="#slide1" className="btn btn-circle border-0 bg-transparent backdrop-blur-xs"><FaArrowRight /></a>
+                    <a href="#slide2" className="btn btn-circle border-0 bg-transparent backdrop-blur-md text-white"><FaArrowLeft /></a>
+                    <a href="#slide1" className="btn btn-circle border-0 bg-transparent backdrop-blur-md text-white"><FaArrowRight /></a>
                 </div>
             </div>
 
