@@ -29,7 +29,7 @@ const ProfilePage = async () => {
     return (
         <div className='animate__animated animate__backInDown my-10'>
             {
-                user ? <div className='flex flex-col items-center justify-center space-y-4 text-center bg-linear-to-tl from-gray-900 via-blue-300 to-gray-900 md:w-1/2 md:mx-auto p-8 rounded-2xl mx-4'>
+                user ? <div className='flex flex-col items-center justify-center space-y-4 text-center bg-linear-to-tr from-red-100 via-blue-100 to-red-100 dark:from-gray-900 dark:via-gray-500 dark:to-gray-900 md:w-1/2 md:mx-auto p-8 rounded-2xl mx-4'>
 
                     <Image
                         src={user?.image}
@@ -38,8 +38,8 @@ const ProfilePage = async () => {
                         height={100}
                         className='rounded-full w-25 h-25'
                     />
-                    <p className='font-medium text-black'>Name: {user?.name}</p>
-                    <p className='font-medium text-black'>Email: {user?.email}</p>
+                    <p className='font-medium'>Name: {user?.name}</p>
+                    <p className='font-medium'>Email: {user?.email}</p>
 
                     <div>
                         <UpdateProfileModal/>

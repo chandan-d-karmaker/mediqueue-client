@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
 const WhyChoose = () => {
+    const [mounted, setMounted] = useState(false);
     const { resolvedTheme } = useTheme();
     const features = [
         { title: "Easy Booking", desc: "Book tutors instantly with a smooth and simple interface." },
@@ -15,7 +16,6 @@ const WhyChoose = () => {
         { title: "Affordable Pricing", desc: "Find tutors that match your budget easily." },
     ];
 
-    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         // eslint-disable-next-line
@@ -57,11 +57,8 @@ const WhyChoose = () => {
                                 stiffness: 100
                             }}
 
-                            className='px-4 py-6 text-center rounded-2xl
-                                 bg-white/5 backdrop-blur-sm border border-white/20 
-                                  shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] 
-                                    transition-all duration-300 
-                                     hover:bg-white/20 dark:hover:bg-black/30 space-y-4 dark:bg-black/20 dark:border-white/10'
+                            // Flattened className for hydration consistency
+                            className='px-4 py-6 text-center rounded-2xl bg-white/5 backdrop-blur-sm border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] transition-all duration-300 hover:bg-white/20 dark:hover:bg-black/30 space-y-4 dark:bg-black/20 dark:border-white/10'
                         >
                             <h1 className='text-xl font-semibold mb-4'>{feature.title}</h1>
                             <p className='opacity-75'>{feature.desc}</p>
