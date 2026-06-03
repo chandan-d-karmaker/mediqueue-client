@@ -14,10 +14,14 @@ const DeleteAlert = ({ tutor, token }) => {
         });
         const data = await res.json();
         console.log(data);
+        const DURATION = 1000;
         if (data.deletedCount > 0) {
-
-            toast.success("Tutor deleted successfully!");
-            window.location.reload();
+            toast.success("Tutor deleted successfully!", {
+                DURATION: DURATION,
+            });
+            setTimeout(() => {
+                window.location.reload();
+            }, DURATION);
         } else {
             toast.error("Failed to delete tutor.");
         }

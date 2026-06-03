@@ -8,7 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const TutorUpdateModal = ({ tutor }) => {
 
-    const {_id, name, imageUrl, subject, availablity, hourlyFee, remainingSlots, institution, experience, location, mode} = tutor;
+    const { _id, name, imageUrl, subject, availablity, hourlyFee, remainingSlots, institution, experience, location, mode } = tutor;
 
     const { data: session } = authClient.useSession();
     const user = session?.user;
@@ -36,12 +36,18 @@ const TutorUpdateModal = ({ tutor }) => {
 
         const data = await res.json();
         console.log(data);
+        const DURATION = 1000;
         if (data.modifiedCount > 0) {
-            toast.success("Tutor information updated successfully!");
+            toast.success("Tutor information updated successfully!", {
+                DURATION: DURATION,
+            });
             const modal = document.getElementById(`modal-${_id}`);
             if (modal) {
                 modal.close();
             }
+            setTimeout(() => {
+                window.location.reload();
+            }, DURATION);
 
         } else {
             toast.error(data.error || "Failed to update tutor information. Please try again.");
@@ -50,7 +56,7 @@ const TutorUpdateModal = ({ tutor }) => {
                 modal.close();
             }
         }
-        window.location.reload();
+
 
     }
     return (
@@ -63,7 +69,7 @@ const TutorUpdateModal = ({ tutor }) => {
                     <form onSubmit={handleUpdate} className="fieldset rounded-box p-2">
 
                         <legend className="text-xl font-semibold text-center">Update Tutor Information</legend>
-                        
+
                         <label className="label">Tutor Name</label>
                         <input type="text" name='name' defaultValue={name} className="input w-full" placeholder="Name" />
 
@@ -71,7 +77,7 @@ const TutorUpdateModal = ({ tutor }) => {
                         <input type="text" name='imageUrl' defaultValue={imageUrl} className="input w-full" placeholder="Photo URL (imgbb-link upload)" />
 
                         <label className="label">Select subject</label>
-                        <select defaultValue={subject} name='subject'   className="select w-full">
+                        <select defaultValue={subject} name='subject' className="select w-full">
                             <option>Select a subject</option>
                             <option>Physics</option>
                             <option>Mathematics</option>

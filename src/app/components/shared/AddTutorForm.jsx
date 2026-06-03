@@ -34,10 +34,14 @@ const AddTutorForm = ({ token }) => {
 
         const data = await res.json();
         console.log(data);
-
+        const DURATION = 1000;
         if (data.insertedId) {
-            toast.success("Tutor added successfully!")
-            redirect('/my-tutors')
+            toast.success("Tutor added successfully!", {
+                DURATION: DURATION,
+            })
+            setTimeout(() => {
+                window.location.reload();
+            }, DURATION);
         }
 
     }

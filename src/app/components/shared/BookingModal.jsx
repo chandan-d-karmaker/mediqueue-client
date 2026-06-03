@@ -37,17 +37,24 @@ const BookingModal = ({ tutor, token }) => {
 
         const data = await res.json();
         console.log(data);
+        
+        const DURATION= 1000;
         if (data.insertedId) {
-            toast.success("Session Booked successfully!");
+            toast.success("Session Booked successfully!", {
+                DURATION: DURATION,
+            });
             const modal = document.getElementById('my_modal_5');
             if (modal) {
                 modal.close();
             }
-
-            window.location.href='/my-bookings';
+            setTimeout(() => {
+                window.location.reload();
+            }, DURATION);
 
         } else {
-            toast.error(data.message)
+            toast.error(data.message, {
+                DURATION:DURATION,
+            })
             const modal = document.getElementById('my_modal_5');
             if (modal) {
                 modal.close();

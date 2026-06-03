@@ -6,9 +6,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-export const metadata = {
-    title: "My Profile",
-};
+export async function generateMetadata() {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  const userName = session?.user?.name || "User";
+
+  return {
+    title: `${userName}'s Profile`,
+    description: `View and edit profile settings for ${userName}`,
+  };
+}
 
 const ProfilePage = async () => {
 

@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import { authClient } from "@/lib/auth-client";
+import toast from 'react-hot-toast';
 
 const UpdateProfileModal = () => {
 
@@ -12,10 +13,15 @@ const UpdateProfileModal = () => {
         const { data, error } = await authClient.updateUser({
             ...userData
         });
-
+        const DURATION = 1000;
         if (!error) {
+            toast.success("Profile updated successfully!", {
+                DURATION: DURATION,
+            })
             document.getElementById('update_profile_modal').close();
-            window.location.reload();
+            setTimeout(() => {
+                window.location.reload();
+            }, DURATION);
         }
     };
 
