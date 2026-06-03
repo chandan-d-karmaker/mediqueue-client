@@ -6,7 +6,7 @@ import { FaEdit } from 'react-icons/fa';
 import CalendarIcon from './DatePicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-const TutorUpdateModal = ({ tutor }) => {
+const TutorUpdateModal = ({ tutor, token }) => {
 
     const { _id, name, imageUrl, subject, availablity, hourlyFee, remainingSlots, institution, experience, location, mode } = tutor;
 
@@ -29,7 +29,8 @@ const TutorUpdateModal = ({ tutor }) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-tutors/${_id}`, {
             method: "PATCH",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${token}`
             },
             body: JSON.stringify(bookingDataWihId)
         })

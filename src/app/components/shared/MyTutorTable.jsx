@@ -52,7 +52,7 @@ const MyTutorTable = ({ tutor, token }) => {
                         <td>{sessionStartDate}</td>
                         <th className='flex gap-2'>
                             <DeleteAlert tutor={tutor} token={token} />
-                            <TutorUpdateModal tutor={tutor} />
+                            <TutorUpdateModal tutor={tutor} token={token} />
                         </th>
                     </tr>
                 </tbody>

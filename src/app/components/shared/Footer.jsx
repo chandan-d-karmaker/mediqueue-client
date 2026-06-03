@@ -97,10 +97,10 @@ const Footer = () => {
 
                 </div>
 
-                <div className='w-4/5 mx-auto mt-4 md:mt-0 pt-7 md:pb-4 pb-0 border-t-2 flex justify-between items-center text-sm dark:text-gray-400 text-black/80'>
+                <div className='md:w-4/5 md:mx-auto mt-4 md:mt-0 pt-7 md:pb-4 pb-0 border-t-2 flex justify-between items-center text-sm dark:text-gray-400 text-black/80'>
 
-                    <h1 className='text-center'>© 2026 Mediqueue. All rights reserved.</h1>
-                    <div className='md:flex gap-5 hidden'>
+                    <h1 className='text-start flex flex-wrap'>© 2026 Mediqueue. All rights reserved.</h1>
+                    <div className='flex justify-end text-right md:gap-2 '>
                         <a href="#">Privacy Policy</a>
                         <a href="#">Terms of Service</a>
                         <a href="#">Cookies</a>
