@@ -23,7 +23,7 @@ const AddTutorForm = ({ token }) => {
         }
         // console.log(newTutorData);
 
-        const res = await fetch('http://localhost:5000/all-tutors', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
