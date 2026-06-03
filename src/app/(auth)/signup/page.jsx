@@ -83,7 +83,7 @@ const SignupPage = () => {
                     className="link text-start link-info text-xs"
                     onClick={() => document.getElementById('my_modal_3').showModal()}
                 >
-                    How to get a link?
+                    How to get a URL?
                 </button>
 
                 <label className="label">Password</label>

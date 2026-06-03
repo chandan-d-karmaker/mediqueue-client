@@ -104,7 +104,14 @@ const LoginPage = () => {
 
 
                 <button className="btn btn-neutral mt-4 mb-1">Login</button>
-                <p className='text-center text-blue-500'>Forget Password?</p>
+                <button
+                    type="button"
+                    className="link text-start link-info text-xs"
+                    onClick={() => document.getElementById('my_modal_3').showModal()}
+                >
+                    Forget Password?
+                </button>
+
                 <p className='text-center text-[16px]'>New here? <Link href="/signup" className="text-blue-500">Register here</Link></p>
 
                 <div className="divider">OR</div>
@@ -116,6 +123,16 @@ const LoginPage = () => {
                     <FaGoogle /> continue with google
                 </div>
             </form>
+            <dialog id="my_modal_3" className="modal">
+                <div className="modal-box">
+                    <form method="dialog">
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <h3 className="font-bold text-lg">Please try to remember your password</h3>
+                    <p className="py-4">We do not have the functionality yet!</p>
+                    
+                </div>
+            </dialog>
 
             <Image src={loginImg} className='hidden lg:flex h-screen' alt='image-login' height={800} width={800}></Image>
         </div>
