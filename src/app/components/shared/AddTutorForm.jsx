@@ -13,13 +13,19 @@ const AddTutorForm = ({ token }) => {
     const user = session?.user;
     // console.log('Add user ID: ', user?.id);
 
+    const formatDate = (date) => {
+        const dateObject = new Date(date);
+        return dateObject.toISOString().split('T')[0];
+    };
+
     const onSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const newTutor = Object.fromEntries(formData.entries());
         const newTutorData = {
             ...newTutor,
-            userID: user?.id
+            userID: user?.id,
+            sessionStartDate: formatDate(newTutor.sessionStartDate)
         }
         // console.log(newTutorData);
 
@@ -40,7 +46,7 @@ const AddTutorForm = ({ token }) => {
                 DURATION: DURATION,
             })
             setTimeout(() => {
-                window.location.href='/my-tutors';
+                window.location.href = '/my-tutors';
             }, DURATION);
         }
 

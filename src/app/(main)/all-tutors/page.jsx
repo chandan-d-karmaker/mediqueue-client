@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import TutorCard from '../../components/shared/TutorCard';
 import * as motion from "motion/react-client";
+import SearchFilter from '@/app/components/shared/SearchFilter';
 
 export const metadata = {
     title: "All Tutors",
@@ -11,8 +12,15 @@ const AllTutors = async ({ searchParams }) => {
     const params = await searchParams;
     const searchQuery = (params.search || " ").trim();
     console.log(searchQuery);
+    const startDate = params.startDate ? (params.startDate) : "";
+    console.log(startDate);
+    const endtDate = params.endDate ? (params.endDate) : "";
+    console.log(endtDate);
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors?search=${searchQuery}`, {
+    // NB: seleting session start date will show ypu the tutuors whom session will start after the input date
+    // selecting session end date will show the tutores whom session will start before the input date
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors?search=${encodeURIComponent(searchQuery)}&startDate=${encodeURIComponent(startDate)}&endDate=${encodeURIComponent(endtDate)}`, {
         cache: 'no-store'
     })
 
@@ -23,18 +31,8 @@ const AllTutors = async ({ searchParams }) => {
 
             <h1 className='text-4xl font-bold text-center my-10'>All Tutors</h1>
 
-            <form className='flex gap-3 items-center'>
-                <input
-                    type='search'
-                    name='search'
-                    // defaultValue={searchQuery}
-                    placeholder='Search tutors by name'
-                    className='input input-bordered w-1/2 max-w-xl'
-                    aria-label='Search tutors by name'
-                />
-                <button type='submit' className='btn btn-primary md:w-auto'>Search</button>
-            </form>
-            
+            <SearchFilter />
+
             {/* not working properly but isn't required for the assignment */}
             {/* {searchQuery!== ' ' && (
                 <p className='text-sm text-center text-muted-foreground'>
