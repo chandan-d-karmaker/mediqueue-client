@@ -5,8 +5,17 @@ import React from 'react';
 
 export const generateMetadata = async ({ params }) => {
     const { id } = await params;
+    // console.log(id);
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors/${id}`);
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-tutors/${id}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    });
 
     const tutor = await res.json();
     return {

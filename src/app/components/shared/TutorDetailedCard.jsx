@@ -8,10 +8,13 @@ const TutorDetailedCard = ({ tutor, token }) => {
 
     console.log(tutor);
     return (
-        <div className='md:w-4/5 md:mx-auto mx-4 mb-10 mt-5 '>
+        <div className='md:w-4/5 md:mx-auto mx-4 mb-10 mt-5'>
             <BackButton />
-            <div className="rounded-lg p-4 space-y-2 bg-base-200 shadow-sm border border-base-300  md:flex flex-row gap-4 items-center md:justify-start justify-center">
-                <Image src={tutor?.imageUrl} alt={tutor?.name} width={100} height={100} className='w-full md:w-100 h-70 rounded-lg border'></Image>
+            <div className="rounded-lg p-4 bg-base-200 shadow-sm border border-base-300 flex md:flex-row flex-col gap-6 lg:gap-10 items-center justify-center">
+
+                <Image src={tutor?.imageUrl} alt={tutor?.name} width={100} height={100} className='w-full md:w-100 h-70 rounded-lg border'>
+                </Image>
+
                 <div className='space-y-2 text-center md:text-start'>
                     <h1 className='text-2xl font-semibold'>{tutor.name}</h1>
                     <p className='text-md opacity-75'>{tutor.subject}</p>
@@ -26,7 +29,6 @@ const TutorDetailedCard = ({ tutor, token }) => {
                     <p className='text-md'><span className='font-semibold'>Hourly Fee:</span> {tutor.hourlyFee}Tk</p>
                     <BookingModal tutor={tutor} token={token} />
                 </div>
-
             </div>
         </div>
     );
