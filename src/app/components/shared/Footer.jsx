@@ -1,16 +1,29 @@
+'use client'
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import footerBg from '@/assests/WaveLine.svg'
+import footerBgDark from '@/assests/footer-dark.svg'
 import { FaFacebookSquare, FaInstagramSquare } from 'react-icons/fa';
 import { FaSquareXTwitter } from "react-icons/fa6";
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
 
 const Footer = () => {
+    const [mounted, setMounted] = useState(false);
+    const { resolvedTheme } = useTheme();
+
+    useEffect(() => {
+        // eslint-disable-next-line
+        setMounted(true);
+    }, []);
+
+    const imageSrc = !mounted ? footerBg : (resolvedTheme === 'dark' ? footerBg : footerBgDark);
+
     return (
         <div className='pt-20 relative'>
-            
+
             <Image
-                src={footerBg}
+                src={imageSrc}
                 alt="Background"
                 loading='eager'
                 quality={70}
@@ -22,12 +35,12 @@ const Footer = () => {
             />
 
             <div className='mx-4 relative z-10'>
-                <div className='w-4/5 mx-auto text-white'>
+                <div className='w-4/5 mx-auto text-black dark:text-white'>
 
                     <div className='flex flex-col space-y-5 md:flex-row justify-between md:gap-5 lg:gap-10'>
 
                         <div className='flex flex-col items-center text-center md:text-start md:items-start'>
-                            <h1 className='text-4xl bg-linear-to-r from-red-400 via-green-300 to-blue-500 bg-clip-text text-transparent font-extrabold  mb-4'>MediQueue</h1>
+                            <h1 className='text-4xl bg-linear-to-r from-red-400 via-gray-300 to-blue-500 bg-clip-text text-transparent font-extrabold  mb-4'>MediQueue</h1>
                             <p className='max-w-sm'>MediQueue is a tutor booking web application where students can register, log in,
                                 browse available tutors, and book online learning sessions based on subject and time
                                 availability. The system generates digital session tokens for each booking and allows
@@ -78,13 +91,13 @@ const Footer = () => {
                                 <p>+88099887765</p>
                                 <p>+88099868565</p>
                             </div>
-                            
+
                         </div>
                     </div>
 
                 </div>
 
-                <div className='w-4/5 mx-auto mt-4 md:mt-0 pt-7 md:pb-4 pb-0 border-t-2 flex justify-between items-center text-sm text-gray-400'>
+                <div className='w-4/5 mx-auto mt-4 md:mt-0 pt-7 md:pb-4 pb-0 border-t-2 flex justify-between items-center text-sm dark:text-gray-400 text-black/80'>
 
                     <h1 className='text-center'>© 2026 Mediqueue. All rights reserved.</h1>
                     <div className='md:flex gap-5 hidden'>

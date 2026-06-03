@@ -16,7 +16,7 @@ const DeleteAlert = ({ tutor, token }) => {
         console.log(data);
         const DURATION = 1000;
         if (data.deletedCount > 0) {
-            toast.success("Tutor deleted successfully!", {
+            toast.success(`${tutor.name} deleted successfully!`, {
                 DURATION: DURATION,
             });
             setTimeout(() => {
@@ -29,8 +29,8 @@ const DeleteAlert = ({ tutor, token }) => {
     return (
         <div>
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
-            <button className="btn btn-warning tooltip" data-tip="Delete Tutor" onClick={() => document.getElementById('my_modal_3').showModal()}><MdDeleteForever /></button>
-            <dialog id="my_modal_3" className="modal">
+            <button className="btn btn-warning tooltip" data-tip="Delete Tutor" onClick={() => document.getElementById(`modal-${tutor._id}`).showModal()}><MdDeleteForever /></button>
+            <dialog id={`modal-${tutor._id}`} className="modal">
                 <div className="modal-box">
                     <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}

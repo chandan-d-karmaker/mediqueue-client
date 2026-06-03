@@ -40,7 +40,7 @@ const AddTutorForm = ({ token }) => {
                 DURATION: DURATION,
             })
             setTimeout(() => {
-                window.location.reload();
+                window.location.href='/my-tutors';
             }, DURATION);
         }
 

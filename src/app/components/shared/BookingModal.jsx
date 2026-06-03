@@ -37,7 +37,7 @@ const BookingModal = ({ tutor, token }) => {
 
         const data = await res.json();
         console.log(data);
-        
+
         const DURATION= 1000;
         if (data.insertedId) {
             toast.success("Session Booked successfully!", {
@@ -48,7 +48,7 @@ const BookingModal = ({ tutor, token }) => {
                 modal.close();
             }
             setTimeout(() => {
-                window.location.reload();
+                window.location.href='/my-bookings';
             }, DURATION);
 
         } else {

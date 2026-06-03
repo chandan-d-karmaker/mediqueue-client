@@ -8,25 +8,25 @@ import * as motion from "motion/react-client";
 const TutorCard = async ({ tutor }) => {
 
     // implement a disabled btn if already booked
-    const { user } = await auth.api.getSession({
-        headers: await headers()
-    });
+    // const { user } = await auth.api.getSession({
+    //     headers: await headers()
+    // });
 
-    const { token } = await auth.api.getToken({
-        headers: await headers()
-    })
+    // const { token } = await auth.api.getToken({
+    //     headers: await headers()
+    // })
 
     // console.log(session, user);
     // console.log(tutor);
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-bookings/${user.id}`,
-        {
-            headers: {
-                authorization: `Bearer ${token}`
-            }
-        }
-    )
-    const bookedTutors = await res.json();
-    console.log(bookedTutors);
+    // const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-bookings/${user.id}`,
+    //     {
+    //         headers: {
+    //             authorization: `Bearer ${token}`
+    //         }
+    //     }
+    // )
+    // const bookedTutors = await res.json();
+    // console.log(bookedTutors);
 
 
 

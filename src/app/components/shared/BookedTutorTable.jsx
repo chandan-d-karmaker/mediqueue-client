@@ -20,7 +20,7 @@ const BookedTutorTable = ({ booking, token }) => {
         console.log(data);
         const DURATION = 1000;
         if (data.modifiedCount > 0) {
-            toast.success('Booking Canceled Successfully!', {
+            toast.success(`Booking for ${booking.tutorName} Canceled Successfully!`, {
                 duration: DURATION,
             });
 
