@@ -1,6 +1,7 @@
 import BookedTutorTable from '@/app/components/shared/BookedTutorTable';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
+import Link from 'next/link';
 import React from 'react';
 
 export const metadata = {
@@ -33,6 +34,9 @@ const MyBookingPage = async () => {
                     myBookings.length == 0 && <div className='flex flex-col items-center justify-center space-y-4 p-10 bg-base-300 rounded-lg'>
                         <h1 className='text-2xl font-bold text-center opacity-75'>No Bookings</h1>
                         <p className='text-center'>You haven&apos;t booked any sessions yet. Please book a session to see your bookings here.</p>
+                        <button className='btn btn-primary btn-outline'>
+                            <Link href={'/all-tutors'}>Book Now</Link>
+                        </button>
                     </div>
                 }
 

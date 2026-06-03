@@ -1,6 +1,7 @@
 import MyTutorTable from '@/app/components/shared/MyTutorTable';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
+import Link from 'next/link';
 import React from 'react';
 
 export const metadata = {
@@ -25,7 +26,7 @@ const MyTutorsPage = async () => {
         }
     })
     const myTutors = await res.json();
-    console.log(myTutors);
+    // console.log(myTutors);
 
     return (
         <div className='md:w-4/5 md:mx-auto space-y-4 mx-4 my-10'>
@@ -35,6 +36,9 @@ const MyTutorsPage = async () => {
                     myTutors.length == 0 && <div className='flex flex-col items-center justify-center space-y-4 p-10 bg-base-300 rounded-lg'>
                         <h1 className='text-2xl font-bold text-center opacity-75'>No Tutors Added</h1>
                         <p className='text-center'>You haven&apos;t added any tutors yet. Please add a tutor to see them here.</p>
+                        <button className='btn btn-primary btn-outline'>
+                            <Link href={'/add-tutor'}>Add Now</Link>
+                        </button>
                     </div>
                 }
                 {
