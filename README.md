@@ -9,6 +9,12 @@
 
 ---
 
+## Live Demo
+
+[Live Link](https://mediqueue-client-ck.vercel.app)
+
+---
+
 ## Table of Contents
 
 - [Features](#features)
