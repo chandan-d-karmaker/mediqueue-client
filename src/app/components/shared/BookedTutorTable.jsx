@@ -3,36 +3,9 @@ import React from 'react';
 import Image from 'next/image';
 import { MdCancel } from "react-icons/md";
 import toast from 'react-hot-toast';
+import CancleAlert from './CancleAlert';
 
 const BookedTutorTable = ({ booking, token }) => {
-
-    const cancelBooking = async () => {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-bookings/${booking._id}`, {
-            method: "PATCH",
-            headers: {
-                'content-type': 'application/json',
-                authorization: `Bearer ${token}`
-
-            }
-        })
-
-        const data = await res.json();
-        console.log(data);
-        const DURATION = 1000;
-        if (data.modifiedCount > 0) {
-            toast.success(`Booking for ${booking.tutorName} Canceled Successfully!`, {
-                duration: DURATION,
-            });
-
-            setTimeout(() => {
-                window.location.reload();
-            }, DURATION);
-        } else {
-            toast.error("Tutor is already canceled! Please book another tutor.");
-        }
-    }
-
-
 
     return (
         <div className="overflow-x-auto animate__animated animate__fadeInDown">
@@ -79,9 +52,7 @@ const BookedTutorTable = ({ booking, token }) => {
                         </span></td>
 
                         <th>
-                            <button className='btn tooltip' data-tip="Cancel Booking" onClick={cancelBooking}>
-                                <MdCancel />
-                            </button>
+                            <CancleAlert booking={booking} token={token} />
                         </th>
                     </tr>
                 </tbody>

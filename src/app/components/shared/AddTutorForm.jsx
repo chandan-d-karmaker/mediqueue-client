@@ -1,10 +1,9 @@
 'use client'
 import CalendarIcon from '@/app/components/shared/DatePicker';
 import { useSession } from '@/lib/auth-client';
-import { redirect } from 'next/navigation';
 import React from 'react';
 import toast from 'react-hot-toast';
-import { div } from 'motion/react-client';
+
 
 
 const AddTutorForm = ({ token }) => {
@@ -61,7 +60,7 @@ const AddTutorForm = ({ token }) => {
                 <input type="text" name='name' className="input w-full" placeholder="Name" />
 
                 <label className="label">Photo</label>
-                <input type="text" name='imageUrl' className="input w-full" placeholder="Photo URL (imgbb-link upload)" />
+                <input type="text" name='imageUrl' className="input w-full" placeholder="Photo URL (imgbb/postimg link upload)" />
                 <button
                     type="button"
                     className="link text-start link-info text-xs"
@@ -123,7 +122,7 @@ const AddTutorForm = ({ token }) => {
                     <h3 className="font-bold text-lg">How to add an image</h3>
                     <p className="py-4">Follow these steps to get a direct image link:</p>
                     <ol className="list-decimal list-inside space-y-2">
-                        <li>Go to <a href="https://imgbb.com/" target="_blank" className="link link-primary">ImgBB</a>.</li>
+                        <li>Go to <a href="https://imgbb.com/" target="_blank" className="link link-primary">ImgBB</a> or <a href="https://postimages.org/" target="_blank" className="link link-primary">PostImg</a></li>
                         <li>Click the <strong>Start Uploading</strong> button and select your image.</li>
                         <li>Once uploaded, change the dropdown menu to <strong>HTML full linked</strong> or <strong>Direct links</strong>.</li>
                         <li>Copy the URL provided and paste it into our form field.</li>

@@ -2,9 +2,14 @@ import React from 'react';
 import BookingModal from './BookingModal';
 import Image from 'next/image';
 import BackButton from './BackButton';
+import { format } from 'date-fns';
 
 
 const TutorDetailedCard = ({ tutor, token }) => {
+
+    const isoString = tutor.sessionStartDate;
+
+    const formattedDate = format(new Date(isoString), 'd MMM yyyy').toUpperCase();
 
     console.log(tutor);
     return (
@@ -25,7 +30,8 @@ const TutorDetailedCard = ({ tutor, token }) => {
                     <p className='text-md'><span className='font-semibold'>Mode:</span> {tutor.mode}</p>
                     <p className='text-md'><span className='font-semibold'>Available day & time slot:</span> {tutor.availablity}</p>
                     <p className='text-md'><span className='font-semibold'>Remaining slots:</span> {tutor.remainingSlots}</p>
-                    <p className='text-md'><span className='font-semibold'>Session Start Date:</span> {tutor.sessionStartDate}</p>
+                    <p className='text-md'><span className='font-semibold'>Session Start Date:</span> {formattedDate} </p>
+                    
                     <p className='text-md'><span className='font-semibold'>Hourly Fee:</span> {tutor.hourlyFee}Tk</p>
                     <BookingModal tutor={tutor} token={token} />
                 </div>

@@ -77,7 +77,7 @@ const SignupPage = () => {
                 <input name='email' type="email" className="input" placeholder="Email" />
 
                 <label className="label">Photo URL</label>
-                <input name='image' type="text" className="input" placeholder="Photo URL" />
+                <input name='image' type="text" className="input" placeholder="Photo URL (imgbb/postimg) " />
                 <button
                     type="button"
                     className="link text-start link-info text-xs"
@@ -133,7 +133,7 @@ const SignupPage = () => {
                     <h3 className="font-bold text-lg">How to add an image</h3>
                     <p className="py-4">Follow these steps to get a direct image link:</p>
                     <ol className="list-decimal list-inside space-y-2">
-                        <li>Go to <a href="https://imgbb.com/" target="_blank" className="link link-primary">ImgBB</a>.</li>
+                        <li>Go to <a href="https://imgbb.com/" target="_blank" className="link link-primary">ImgBB</a> or <a href="https://postimages.org/" target="_blank" className="link link-primary">PostImg</a></li>
                         <li>Click the <strong>Start Uploading</strong> button and select your image.</li>
                         <li>Once uploaded, change the dropdown menu to <strong>HTML full linked</strong> or <strong>Direct links</strong>.</li>
                         <li>Copy the URL provided and paste it into our form field.</li>
