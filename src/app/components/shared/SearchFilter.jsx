@@ -12,18 +12,18 @@ const SearchFilter = () => {
                         type='search'
                         name='search'
                         placeholder='Search tutors by name'
-                        className='input input-bordered w-1/2 max-w-xl'
+                        className='input input-bordered max-w-xl'
                         aria-label='Search tutors by name'
                     />
                 </div>
 
                 <div className='flex flex-col'>
-                    <label className='label'>Select Session Start Date</label>
+                    <label className='label'>Session Start Date</label>
                     <input type="date" className="input" name='startDate' />
                 </div>
 
                 <div className='flex flex-col'>
-                    <label className='label'>Select Session End Date</label>
+                    <label className='label'>Session End Date</label>
                     <input type="date" className="input" name='endDate' />
                 </div>
 
