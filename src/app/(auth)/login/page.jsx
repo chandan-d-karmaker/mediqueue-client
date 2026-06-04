@@ -106,7 +106,7 @@ const LoginPage = () => {
                 <button className="btn btn-neutral mt-4 mb-1">Login</button>
                 <button
                     type="button"
-                    className="link text-start link-info text-xs"
+                    className="link text-center link-info text-xs"
                     onClick={() => document.getElementById('my_modal_3').showModal()}
                 >
                     Forget Password?
