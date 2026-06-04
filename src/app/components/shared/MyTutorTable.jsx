@@ -3,9 +3,14 @@ import Image from 'next/image';
 import React from 'react';
 import TutorUpdateModal from './TutorUpdateModal';
 import DeleteAlert from './DeleteAlert';
+import { format } from 'date-fns';
 
 const MyTutorTable = ({ tutor, token }) => {
     const { _id, name, subject, sessionStartDate, hourlyFee, remainingSlots, availablity, imageUrl } = tutor;
+
+    const isoString = sessionStartDate;
+
+    const formattedDate = format(new Date(isoString), 'd MMM yyyy').toUpperCase();
 
     return (
         <div className="overflow-x-auto animate__animated animate__fadeInDown">
@@ -49,7 +54,7 @@ const MyTutorTable = ({ tutor, token }) => {
                         {/* remaining slots */}
                         <td className="font-semibold text-md">{remainingSlots}</td>
                         {/* session start date */}
-                        <td>{sessionStartDate}</td>
+                        <td>{formattedDate}</td>
                         <th className='flex gap-2'>
                             <DeleteAlert tutor={tutor} token={token} />
                             <TutorUpdateModal tutor={tutor} token={token} />
