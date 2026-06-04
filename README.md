@@ -303,7 +303,7 @@ Protected requests include `Authorization: Bearer <token>` from Better Auth.
 
 ## License
 
-MIT License
+![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
 ---
 
