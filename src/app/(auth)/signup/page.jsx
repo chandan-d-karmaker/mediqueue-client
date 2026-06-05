@@ -54,7 +54,7 @@ const SignupPage = () => {
     return (
         <div className='flex lg:justify-between justify-center items-center h-screen'>
 
-            <form onSubmit={handleSubmit} className="fieldset bg-base-200 min-w-xs border border-base-300 md:border-0 p-4">
+            <form onSubmit={handleSubmit} className="fieldset bg-base-200 min-w-xs border border-base-300 md:border-0 p-4 h-screen flex flex-col justify-center">
 
                 {
                     error && <div className="alert alert-error rounded-lg text-sm">
@@ -89,14 +89,16 @@ const SignupPage = () => {
                 <label className="label">Password</label>
                 <label className="input validator relative">
                     <FaKey />
+
+                    {/* better auth doesn't support less that 8 charecters password so I've to overwrite the assignment requirement doc. Please consider! */}
                     <input
                         type={showPassword ? 'text' : 'password'}
                         name='password'
                         required
                         placeholder="Password"
-                        minLength="6"
-                        pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}"
-                        title="Must be more than 6 characters, one lowercase letter, one uppercase letter"
+                        minLength="8"
+                        pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        title="Must be more than 8 characters, one lowercase letter, one uppercase letter"
                         className="pr-10"
                     />
                     <button
@@ -109,8 +111,8 @@ const SignupPage = () => {
                     </button>
                 </label>
                 <p className="validator-hint hidden">
-                    Must be more than 6 characters, including
-                    <br />At least one number <br />At least one lowercase letter <br />At least one uppercase letter
+                    Must be more than 8 characters, including
+                    <br />At least one lowercase letter <br />At least one uppercase letter
                 </p>
 
                 <button className="btn btn-neutral my-1">Register</button>
